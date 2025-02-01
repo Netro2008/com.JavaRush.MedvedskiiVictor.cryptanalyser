@@ -16,7 +16,7 @@ public class FileManager {
     public static void writeFile(String content, String filePath) throws IOException {
         try (FileWriter fileWriter = new FileWriter(filePath);
              BufferedWriter bufferedWriter = new BufferedWriter(fileWriter)) {
-             bufferedWriter.write(content);
+            bufferedWriter.write(content);
         }
     }
 }
