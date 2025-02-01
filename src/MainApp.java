@@ -41,7 +41,7 @@ public class MainApp {
                     System.out.print("Вы выбрали несуществующий пункт меню! Будьте внимательны!!!" + "\n" + "Повторите попытку ввода снова: ");
                     userChoice = Integer.parseInt(scanner1.nextLine());
                 } catch (NumberFormatException exception1) {
-                    System.out.print("Вы должны вводить число!!! " + "\n" + "Выберите пункт ещё раз: ");
+                    System.out.print("Вы должны вводить число!!!" + "\n" + "Выберите пункт ещё раз: ");
                     userChoice = Integer.parseInt(scanner1.nextLine());
                 }
             }
@@ -269,10 +269,11 @@ public class MainApp {
                         }
                     }
                     if (clintChose3 == 1) {
-                        System.out.println("Добро пожаловать в расшифровку методом BruteForce из консоли!");
+                        System.out.println("Добро пожаловать в расшифровку методом BruteForce из консоли!" + "\n" + "Пожалуйста убедитесь, что вы вводите текст в 1 строчку, иначе лучше воспользуйтесь файлом!");
                         System.out.println("Введите текст, который вы желаете расшифровать и программа напишет вам все возможные варианты!" + "\n" + "Вам останется лишь выбрать какая расшифровка из них - верная");
                         Scanner scanner4 = new Scanner(System.in);
-                        BruteForce.decryptByBruteForceConsole(scanner4.nextLine(), Cipher.ALPHABET);
+                        String bruteForceInput = scanner4.nextLine();
+                        BruteForce.decryptByBruteForceConsole(bruteForceInput, Cipher.ALPHABET);
 
                     } else if (clintChose3 == 2) {
                         Scanner scanner4 = new Scanner(System.in);
@@ -280,6 +281,7 @@ public class MainApp {
                         System.out.print("Введите путь к файлу, который вы хотите расшифровать с помощью метода BruteForce: ");
                         String filePath = scanner4.nextLine();
                         BruteForce.decryptByBruteForceFiles(filePath, Cipher.ALPHABET);
+                        System.out.println("Спасибо, что воспользовались нашей программой, обязательно заглядывайте ещё!!");
                         flag2 = false;
 
                     } else {
