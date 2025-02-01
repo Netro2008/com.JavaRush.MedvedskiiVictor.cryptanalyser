@@ -11,12 +11,12 @@ public class BruteForce {
     public static void decryptByBruteForceFiles(String filepath, List<Character> alphabet) {
         index3 = 1;
         while (index3 < alphabet.size()) {
+            bruteForce = "";
             try (FileOutputStream fos3 = new FileOutputStream("decryptedFile.txt_" + indexesOfFiles3)) {
                 bruteForce = bruteForce.concat(Cipher.decrypt(filepath, index3));
                 fos3.write(bruteForce.getBytes());
-
-            } catch (IOException exception) {
-                exception.printStackTrace();
+            } catch (IOException e) {
+                System.out.println("Произошла ошибка... Попробуйте снова!");
             }
             indexesOfFiles3++;
             index3++;
