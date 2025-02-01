@@ -34,7 +34,13 @@ public class MainApp {
                     0. Выход""");
             System.out.println();
             System.out.print("Выберите нужный вам пункт: ");
-            userChoice = Integer.parseInt(scanner1.nextLine());
+            try {
+                userChoice = Integer.parseInt(scanner1.nextLine());
+            } catch (NumberFormatException exception) {
+                System.out.println("Программа не смогла прочитать выбранный вами пункт(");
+                System.out.print("Пожалуйста повторите попытку: ");
+                userChoice = Integer.parseInt(scanner1.nextLine());
+            }
 
             while (userChoice < 0 || userChoice > 3) {
                 try {
@@ -62,7 +68,15 @@ public class MainApp {
                     System.out.println();
                     System.out.print("Выберите откуда вы будете считывать текст: ");
                     int clintChose1, count1 = 0;
-                    clintChose1 = Integer.parseInt(scanner1.nextLine());
+
+                    try {
+                        clintChose1 = Integer.parseInt(scanner1.nextLine());
+                    } catch (NumberFormatException exception) {
+                        System.out.println("Программа не смогла прочитать выбранный вами пункт(");
+                        System.out.print("Пожалуйста повторите попытку: ");
+                        clintChose1 = Integer.parseInt(scanner1.nextLine());
+                    }
+
                     while (clintChose1 != 1 && clintChose1 != 2 && clintChose1 != 9) {
                         try {
                             if (count1 != 0) {
@@ -156,7 +170,15 @@ public class MainApp {
                     System.out.println();
                     int clintChose2, count2 = 0;
                     System.out.print("Выберите пункт меню: ");
-                    clintChose2 = Integer.parseInt(scanner1.nextLine());
+
+                    try {
+                        clintChose2 = Integer.parseInt(scanner1.nextLine());
+                    } catch (NumberFormatException exception) {
+                        System.out.println("Программа не смогла прочитать выбранный вами пункт(");
+                        System.out.print("Пожалуйста повторите попытку: ");
+                        clintChose2 = Integer.parseInt(scanner1.nextLine());
+                    }
+
                     while (clintChose2 != 1 && clintChose2 != 2 && clintChose2 != 9) {
                         try {
                             if (count2 != 0) {
@@ -252,7 +274,15 @@ public class MainApp {
                     System.out.println();
                     System.out.print("Выберите нужный вам способ расшифровки: ");
                     int clintChose3, count3 = 0;
-                    clintChose3 = Integer.parseInt(scanner1.nextLine());
+
+                    try {
+                        clintChose3 = Integer.parseInt(scanner1.nextLine());
+                    } catch (NumberFormatException exception) {
+                        System.out.println("Программа не смогла прочитать выбранный вами пункт(");
+                        System.out.print("Пожалуйста повторите попытку: ");
+                        clintChose3 = Integer.parseInt(scanner1.nextLine());
+                    }
+
                     while (clintChose3 != 1 && clintChose3 != 2 && clintChose3 != 9) {
                         try {
                             if (count3 != 0) {
