@@ -31,13 +31,12 @@ public class MainApp {
                     1. Шифрование
                     2. Расшифровка с ключом
                     3. Brute force
-                    4. Статистический анализ
                     0. Выход""");
             System.out.println();
             System.out.print("Выберите нужный вам пункт: ");
             userChoice = Integer.parseInt(scanner1.nextLine());
 
-            while (userChoice < 0 || userChoice > 4) {
+            while (userChoice < 0 || userChoice > 3) {
                 try {
                     System.out.print("Вы выбрали несуществующий пункт меню! Будьте внимательны!!!" + "\n" + "Повторите попытку ввода снова: ");
                     userChoice = Integer.parseInt(scanner1.nextLine());
@@ -270,17 +269,19 @@ public class MainApp {
                         }
                     }
                     if (clintChose3 == 1) {
-                        System.out.println("Добро пожаловать в расшифровку методом BruteForce с консоли!");
+                        System.out.println("Добро пожаловать в расшифровку методом BruteForce из консоли!");
                         System.out.println("Введите текст, который вы желаете расшифровать и программа напишет вам все возможные варианты!" + "\n" + "Вам останется лишь выбрать какая расшифровка из них - верная");
                         Scanner scanner4 = new Scanner(System.in);
                         BruteForce.decryptByBruteForceConsole(scanner4.nextLine(), Cipher.ALPHABET);
 
                     } else if (clintChose3 == 2) {
                         Scanner scanner4 = new Scanner(System.in);
+                        System.out.println("Добро пожаловать в расшифровку методом BruteForce с файла!" + "\n" + "Помните, этот способ создан, чтобы расшифровать файл, если у вас нету ключа, по-другому говоря методом подборки!");
+                        System.out.print("Введите путь к файлу, который вы хотите расшифровать с помощью метода BruteForce: ");
                         String filePath = scanner4.nextLine();
                         BruteForce.decryptByBruteForceFiles(filePath, Cipher.ALPHABET);
-
                         flag2 = false;
+
                     } else {
                         break;
                     }
