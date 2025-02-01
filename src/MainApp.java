@@ -1,3 +1,4 @@
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Scanner;
 
@@ -7,6 +8,17 @@ public class MainApp {
 
     public static void main(String[] args) throws IOException {
         System.out.println("Дорогой пользователь, добро пожаловать в мою программу по обработке шифра Цезаря!");
+        System.out.println("Алфавит приложения - русские буквы, пишите русскими буквами!" + "\n" + "Вот весь алфавит: ");
+        for (int i = 0; i < Cipher.ALPHABET.size(); i++) {
+            if (i == Cipher.ALPHABET.size() -1) {
+                System.out.println(Cipher.ALPHABET.get(i));
+                break;
+            }
+            System.out.print(Cipher.ALPHABET.get(i) + " ");
+            if (i == 8 || i == 16 || i == 24 || i == 32) {
+                System.out.println();
+            }
+        }
         boolean flag1;
         Scanner scanner1 = new Scanner(System.in);
         int userChoice;
@@ -94,12 +106,23 @@ public class MainApp {
                             }
                         }
                     } else if (clintChose1 == 2) {
+                        String fileRead, fileRead2;
                         Scanner scanner2 = new Scanner(System.in);
                         String encryptedText;
-                        System.out.print("Введите путь к файлу, в котором находится текст, который необходимо зашифровать: ");
-                        String fileRead = FileManager.readFile(scanner2.nextLine());
-                        System.out.print("Введите путь к файлу, в который нужно будет записать зашифрованный текст: ");
-                        String fileRead2 = FileManager.readFile(scanner2.nextLine());
+                        try {
+                            System.out.print("Введите путь к файлу, в котором находится текст, который необходимо зашифровать: ");
+                            fileRead = FileManager.readFile(scanner2.nextLine());
+                        } catch (FileNotFoundException exception6) {
+                            System.out.print("Вы ввели некорректный путь к файлу! Повторите пожалуйста ввод пути к файлу: ");
+                            fileRead = FileManager.readFile(scanner2.nextLine());
+                        }
+                        try {
+                            System.out.print("Введите путь к файлу, в который нужно будет записать зашифрованный текст: ");
+                            fileRead2 = FileManager.readFile(scanner2.nextLine());
+                        } catch (FileNotFoundException exception7) {
+                            System.out.print("Вы ввели некорректный путь к файлу! Повторите пожалуйста ввод пути к файлу: ");
+                            fileRead2 = FileManager.readFile(scanner2.nextLine());
+                        }
                         System.out.print("Введите ключ: ");
                         key = Integer.parseInt(scanner2.nextLine());
                         while (flag1) {
@@ -183,12 +206,23 @@ public class MainApp {
                         }
 
                     } else if (clintChose2 == 2) {
+                        String filePath2, filePath3;
                         Scanner scanner3 = new Scanner(System.in);
                         String decryptedText;
-                        System.out.print("Введите путь к файлу из которого вам нужно расшифровать текст: ");
-                        String filePath2 = FileManager.readFile(scanner3.nextLine());
-                        System.out.print("Введите путь к файлу в который нужно будет записать расшифровку: ");
-                        String filePath3 = FileManager.readFile(scanner3.nextLine());
+                        try {
+                            System.out.print("Введите путь к файлу из которого вам нужно расшифровать текст: ");
+                            filePath2 = FileManager.readFile(scanner3.nextLine());
+                        } catch (FileNotFoundException exception8) {
+                            System.out.print("Введите путь к файлу, в который нужно будет записать зашифрованный текст: ");
+                            filePath2 = FileManager.readFile(scanner3.nextLine());
+                        }
+                        try {
+                            System.out.print("Введите путь к файлу в который нужно будет записать расшифровку: ");
+                            filePath3 = FileManager.readFile(scanner3.nextLine());
+                        } catch (FileNotFoundException exception9) {
+                            System.out.print("Введите путь к файлу, в который нужно будет записать зашифрованный текст: ");
+                            filePath3 = FileManager.readFile(scanner3.nextLine());
+                        }
                         System.out.print("Введите ключ: ");
                         key = Integer.parseInt(scanner3.nextLine());
                         while (flag3) {
@@ -242,15 +276,16 @@ public class MainApp {
                             clintChose3 = Integer.parseInt(scanner1.nextLine());
                         }
                     }
-
                     if (clintChose3 == 1) {
-
-
+                        System.out.println("Добро пожаловать в расшифровку методом BruteForce с консоли!");
+                        System.out.println("Введите текст, который вы желаете расшифровать и программа напишет вам все возможные варианты!" + "\n" + "Вам останется лишь выбрать какая расшифровка из них - верная");
+                        Scanner scanner4 = new Scanner(System.in);
+                        BruteForce.decryptByBruteForceConsole(scanner4.nextLine(), Cipher.ALPHABET);
 
                     } else if (clintChose3 == 2) {
 
-                        flag2 = false;
 
+                        flag2 = false;
                     } else {
                         break;
                     }

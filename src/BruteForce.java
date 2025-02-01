@@ -8,7 +8,7 @@ public class BruteForce {
     public static String bruteForce = "";
     public static String bruteForce2 = "";
 
-    public static String decryptByBruteForceFiles(String filepath, List<Character> alphabet) {
+    public static void decryptByBruteForceFiles(String filepath, List<Character> alphabet) {
         index3 = 1;
         while (index3 < alphabet.size()) {
             try (FileOutputStream fos3 = new FileOutputStream("decryptedFile.txt_" + indexesOfFiles3)) {
@@ -21,19 +21,16 @@ public class BruteForce {
             indexesOfFiles3++;
             index3++;
         }
-
-        return bruteForce;
     }
 
-    public static String decryptByBruteForceConsole(String encryptedText, List<Character> alphabet) {
+    public static void decryptByBruteForceConsole(String encryptedText, List<Character> alphabet) {
         index3 = 1;
         while (index3 < alphabet.size()) {
-            bruteForce2 = bruteForce2.concat(Cipher.decrypt(encryptedText, index3));
+            bruteForce2 = Cipher.decrypt(encryptedText, index3);
             System.out.println("Вот расшифровка при ключе равном " + index3);
+            System.out.println(bruteForce2);
 
             index3++;
         }
-
-        return bruteForce2;
     }
 }

@@ -6,7 +6,7 @@ public class Cipher {
     public static String textForEncrypt = "";
     public static String textForDecrypt = "";
 
-    private static List<Character> ALPHABET = Arrays.asList('а', 'б',
+    protected static List<Character> ALPHABET = Arrays.asList('а', 'б',
             'в', 'г', 'д', 'е', 'ё', 'ж', 'з', 'и', 'й', 'к', 'л', 'м', 'н', 'о', 'п', 'р', 'с', 'т', 'у',
             'ф', 'х', 'ц', 'ч', 'ш', 'щ', 'ъ', 'ы', 'ь', 'э', 'ю', 'я');
 
