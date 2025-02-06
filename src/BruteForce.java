@@ -10,6 +10,7 @@ public class BruteForce {
 
     public static void decryptByBruteForceFiles(String filepath, List<Character> alphabet) {
         index3 = 1;
+        indexesOfFiles3 = 0;
         String bruteForcing;
         while (index3 < alphabet.size()) {
             try (FileOutputStream fos3 = new FileOutputStream("decryptedFile.txt_" + indexesOfFiles3)) {
