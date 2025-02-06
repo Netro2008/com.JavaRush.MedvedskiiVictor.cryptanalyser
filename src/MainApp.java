@@ -216,6 +216,7 @@ public class MainApp {
                                 Убидитесь что прочитали текст ниже \uD83D\uDC47
                                 """);
                         System.out.print("Дорогой пользователь, помни, что значение твоего ключа может быть строго от 1 до 31: ");
+
                         try {
                             key = Integer.parseInt(scanner1.nextLine());
                         } catch (NumberFormatException exception) {

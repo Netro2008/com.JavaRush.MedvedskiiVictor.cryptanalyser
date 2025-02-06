@@ -12,6 +12,7 @@ public class BruteForce {
         index3 = 1;
         indexesOfFiles3 = 1;
         String bruteForcing;
+
         while (index3 < alphabet.size()) {
             try (FileOutputStream fos3 = new FileOutputStream("decryptedFile.txt_" + indexesOfFiles3)) {
                 bruteForcing = FileManager.readFile(filepath);
