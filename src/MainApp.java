@@ -101,7 +101,13 @@ public class MainApp {
                                 Убидитесь что прочитали текст ниже \uD83D\uDC47
                                 """);
                         System.out.print("Дорогой пользователь, помни, что значение твоего ключа может быть строго от 1 до 31: ");
-                        key = Integer.parseInt(scanner1.nextLine());
+                        try {
+                            key = Integer.parseInt(scanner1.nextLine());
+                        } catch (NumberFormatException exception) {
+                            System.out.println("Вводите число!" + "\n" + "Повторите попытку ещё раз: ");
+                            key = Integer.parseInt(scanner1.nextLine());
+                        }
+
                         while (flag1) {
                             try {
                                 if (key >= 1 && key <= 31) {
@@ -125,7 +131,14 @@ public class MainApp {
                         System.out.print("Введите путь к файлу, в котором находится текст, который необходимо зашифровать: ");
                         fileRead = scanner2.nextLine();
                         System.out.print("Введите ключ: ");
-                        key = Integer.parseInt(scanner2.nextLine());
+
+                        try {
+                            key = Integer.parseInt(scanner2.nextLine());
+                        } catch (NumberFormatException exception) {
+                            System.out.println("Вводите число!" + "\n" + "Повторите попытку ещё раз: ");
+                            key = Integer.parseInt(scanner2.nextLine());
+                        }
+
                         while (flag1) {
                             try {
                                 if (key >= 1 && key <= 31) {
@@ -203,7 +216,13 @@ public class MainApp {
                                 Убидитесь что прочитали текст ниже \uD83D\uDC47
                                 """);
                         System.out.print("Дорогой пользователь, помни, что значение твоего ключа может быть строго от 1 до 31: ");
-                        key = Integer.parseInt(scanner1.nextLine());
+                        try {
+                            key = Integer.parseInt(scanner1.nextLine());
+                        } catch (NumberFormatException exception) {
+                            System.out.println("Вводите число!" + "\n" + "Повторите попытку ещё раз: ");
+                            key = Integer.parseInt(scanner1.nextLine());
+                        }
+
                         while (flag3) {
                             try {
                                 if (key >= 1 && key <= 31) {
@@ -227,7 +246,13 @@ public class MainApp {
                         System.out.print("Введите путь к файлу из которого вам нужно расшифровать текст: ");
                         filePath2 = scanner3.nextLine();
                         System.out.print("Введите ключ: ");
-                        key = Integer.parseInt(scanner3.nextLine());
+                        try {
+                            key = Integer.parseInt(scanner3.nextLine());
+                        } catch (NumberFormatException exception) {
+                            System.out.println("Вводите число!" + "\n" + "Повторите попытку ещё раз: ");
+                            key = Integer.parseInt(scanner3.nextLine());
+                        }
+
                         while (flag3) {
                             try {
                                 if (key >= 1 && key <= 31) {
