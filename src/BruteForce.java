@@ -32,6 +32,7 @@ public class BruteForce {
             bruteForce2 = Cipher.decrypt(encryptedText, index3);
             System.out.println("Вот расшифровка при ключе равном " + index3);
             System.out.println(bruteForce2);
+            System.out.println();
 
             index3++;
         }
