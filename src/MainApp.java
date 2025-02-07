@@ -140,6 +140,7 @@ public class MainApp {
                                 continue;
                             }
                             String decryptedText = Cipher.decrypt(textForRemaking, key);
+                            System.out.println("Расшифрованный текст мы вам написали прямо под этим сообщением!");
                             System.out.println(decryptedText);
 
                         } else if (clintChose2 == 2) {
@@ -206,32 +207,61 @@ public class MainApp {
                         } else {
                             break;
                         }
+                        break;
                     case 4:
                         System.out.println("Добро пожаловать в метод статистического анализа!" + "\n" +
                                 "Данный метод принимает файл с любым русским текстом и на фоне него анализирует зашифрованный вами файл и пытается его расшифровать");
-                        System.out.println("Важно помнить, что метод может допустить ошибку, но вероятность этого крайне мала, если метод вам выдал очень странный текст, воспользуйтесь методом BruteForce!");
-                        System.out.println("Введите путь к файлу в котором находится пример русского текста, любого, но чем больше текст, тем больше вероятность, что программа сработает корректно!");
-                        String filePath_1 = Validator.filePathRead();
-                        if (Validator.counter == 3) {
-                            continue;
-                        }
-                        System.out.println("Введите путь к файлу, где находится зашифрованный текст!");
-                        String filePath_2 = Validator.filePathRead();
-                        if (Validator.counter == 3) {
-                            continue;
-                        }
-                        System.out.print("Введите путь к файлу, в который нужно будет записать расшифровку, текста: ");
-                        String filePath_3 = Validator.filePathRead();
-                        if (Validator.counter == 3) {
-                            continue;
+                        System.out.println("Важно помнить, что метод может допустить ошибку, но вероятность этого крайне мала," +
+                                " если метод вам выдал очень странный текст, воспользуйтесь методом BruteForce!");
+                        System.out.println();
+                        System.out.println("""
+                                Меню
+                                1. Расшифровка текста с помощью статистического анализа
+                                9. Вернуться назад""");
+                        System.out.println();
+
+                        int userChoice2;
+                        while (true) {
+                            try {
+                                userChoice2 = Integer.parseInt(scanner1.nextLine());
+                            } catch (NumberFormatException exception) {
+                                System.out.println("Вводите число!");
+                                continue;
+                            }
+                            if (userChoice2 == 1 || userChoice2 == 9) {
+                                break;
+                            } else {
+                                System.out.print("Вы выбрали несуществующий пункт меню!!!" + "\n" + "Повторите попытку: ");
+                            }
                         }
 
-                        key = StatisticAnalyser.statisticMethod(filePath_1, filePath_2);
-                        String readString = FileManager.readFile(filePath_2);
-                        String doneString = Cipher.decrypt(readString, key);
-                        FileManager.writeFile(doneString, filePath_3);
-                        System.out.println("Расшифровка закончена!" + "При ключе = " + key + " мы нашли " + StatisticAnalyser.finalCounter + " слов, которые похожи на русские слова!");
-                        System.out.println("Расшифровку мы записали в файл " + filePath_3);
+                        if (userChoice2 == 1) {
+                            System.out.println("Введите путь к файлу в котором находится пример русского текста, любого, но чем больше текст, тем больше вероятность, что программа сработает корректно!");
+                            String filePath_1 = Validator.filePathRead();
+                            if (Validator.counter == 3) {
+                                continue;
+                            }
+                            System.out.println("Введите путь к файлу, где находится зашифрованный текст!");
+                            String filePath_2 = Validator.filePathRead();
+                            if (Validator.counter == 3) {
+                                continue;
+                            }
+                            System.out.print("Введите путь к файлу, в который нужно будет записать расшифровку, текста: ");
+                            String filePath_3 = Validator.filePathRead();
+                            if (Validator.counter == 3) {
+                                continue;
+                            }
+
+                            key = StatisticAnalyser.statisticMethod(filePath_1, filePath_2);
+                            String readString = FileManager.readFile(filePath_2);
+                            String doneString = Cipher.decrypt(readString, key);
+                            FileManager.writeFile(doneString, filePath_3);
+                            System.out.println("Расшифровка закончена!" + "При ключе = " + key + " мы нашли " + StatisticAnalyser.finalCounter + " слов, которые похожи на русские слова!");
+                            System.out.println("Расшифровку мы записали в файл " + filePath_3);
+                        } else {
+                            break;
+                        }
+                        break;
                 }
             }
         }
