@@ -3,7 +3,7 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class MainApp {
-    public static int key;
+    public static int key = -1;
     public static String textForRemaking;
 
     public static void main(String[] args) throws IOException {
@@ -19,7 +19,7 @@ public class MainApp {
                 System.out.println();
             }
         }
-        boolean flag1;
+
         Scanner scanner1 = new Scanner(System.in);
         int userChoice;
         boolean flag2 = true;
@@ -31,6 +31,7 @@ public class MainApp {
                     1. Шифрование
                     2. Расшифровка с ключом
                     3. Brute force
+                    4. Статистический анализ
                     0. Выход""");
             System.out.println();
             System.out.print("Выберите нужный вам пункт: ");
@@ -42,7 +43,7 @@ public class MainApp {
                 userChoice = Integer.parseInt(scanner1.nextLine());
             }
 
-            while (userChoice < 0 || userChoice > 3) {
+            while (userChoice < 0 || userChoice > 4) {
                 try {
                     System.out.print("Вы выбрали несуществующий пункт меню! Будьте внимательны!!!" + "\n" + "Повторите попытку ввода снова: ");
                     userChoice = Integer.parseInt(scanner1.nextLine());
@@ -58,7 +59,6 @@ public class MainApp {
                     break;
 
                 case 1:
-                    flag1 = true;
                     System.out.println();
                     System.out.println("""
                             Меню
@@ -67,31 +67,9 @@ public class MainApp {
                             9. Вернуться назад""");
                     System.out.println();
                     System.out.print("Выберите откуда вы будете считывать текст: ");
-                    int clintChose1, count1 = 0;
+                    int clintChose1;
 
-                    try {
-                        clintChose1 = Integer.parseInt(scanner1.nextLine());
-                    } catch (NumberFormatException exception) {
-                        System.out.println("Программа не смогла прочитать выбранный вами пункт(");
-                        System.out.print("Пожалуйста повторите попытку: ");
-                        clintChose1 = Integer.parseInt(scanner1.nextLine());
-                    }
-
-                    while (clintChose1 != 1 && clintChose1 != 2 && clintChose1 != 9) {
-                        try {
-                            if (count1 != 0) {
-                                System.out.print("Вы выбрали несуществуйщий пункт, повторите попытку: ");
-                                clintChose1 = Integer.parseInt(scanner1.nextLine());
-                            }
-                            if (clintChose1 == 1 || clintChose1 == 2 || clintChose1 == 9) {
-                                break;
-                            }
-                            count1++;
-                        } catch (NumberFormatException exception2) {
-                            System.out.print("Вы выбираете пункт в меню, это должно быть число!" + "\n" + "Повторите попытку: ");
-                            clintChose1 = Integer.parseInt(scanner1.nextLine());
-                        }
-                    }
+                    clintChose1 = Validator.numberFormat();
 
                     if (clintChose1 == 1) {
                         System.out.print("Введите текст в консоль для обработки: " + "\n");
@@ -101,29 +79,11 @@ public class MainApp {
                                 Убидитесь что прочитали текст ниже \uD83D\uDC47
                                 """);
                         System.out.print("Дорогой пользователь, помни, что значение твоего ключа может быть строго от 1 до 31: ");
-                        try {
-                            key = Integer.parseInt(scanner1.nextLine());
-                        } catch (NumberFormatException exception) {
-                            System.out.println("Вводите число!" + "\n" + "Повторите попытку ещё раз: ");
-                            key = Integer.parseInt(scanner1.nextLine());
-                        }
 
-                        while (flag1) {
-                            try {
-                                if (key >= 1 && key <= 31) {
-                                    System.out.println("Ключ введён верно, результат мы вывели в консоли под этим сообщением!");
-                                    String str = Cipher.encrypt(textForRemaking, key);
-                                    System.out.println(str);
-                                    flag1 = false;
-                                } else {
-                                    System.out.print("Ключ введён неверно! Повторите попытку:" + "\n");
-                                    key = Integer.parseInt(scanner1.nextLine());
-                                }
-                            } catch (NumberFormatException exception) {
-                                System.out.print("Будьте внимательны, вводите число!" + "\n" + "Введите номер выбранного пункта меню ещё раз: ");
-                                key = Integer.parseInt(scanner1.nextLine());
-                            }
-                        }
+                        key = Validator.keySet();
+                        String encryptedText = Cipher.encrypt(textForRemaking, key);
+                        System.out.println(encryptedText);
+
                     } else if (clintChose1 == 2) {
                         String fileRead, fileRead2, reader;
                         Scanner scanner2 = new Scanner(System.in);
@@ -132,27 +92,8 @@ public class MainApp {
                         fileRead = scanner2.nextLine();
                         System.out.print("Введите ключ: ");
 
-                        try {
-                            key = Integer.parseInt(scanner2.nextLine());
-                        } catch (NumberFormatException exception) {
-                            System.out.println("Вводите число!" + "\n" + "Повторите попытку ещё раз: ");
-                            key = Integer.parseInt(scanner2.nextLine());
-                        }
+                        key = Validator.keySet();
 
-                        while (flag1) {
-                            try {
-                                if (key >= 1 && key <= 31) {
-                                    System.out.println("Ключ введён верно!");
-                                    flag1 = false;
-                                } else {
-                                    System.out.print("Ключ введён неверно! Повторите попытку:" + "\n");
-                                    key = Integer.parseInt(scanner1.nextLine());
-                                }
-                            } catch (NumberFormatException exception3) {
-                                System.out.print("Ключ должен быть числом! Введите число: ");
-                                key = Integer.parseInt(scanner1.nextLine());
-                            }
-                        }
                         System.out.print("Введите путь к файлу, в который нужно будет записать зашифровку: ");
                         fileRead2 = scanner2.nextLine();
                         try {
@@ -180,34 +121,11 @@ public class MainApp {
                             2. Расшифровка текста по ключу(его наличие обязательно) с файла
                             9. Вернуться назад""");
                     System.out.println();
-                    int clintChose2, count2 = 0;
+                    int clintChose2;
                     System.out.print("Выберите пункт меню: ");
 
-                    try {
-                        clintChose2 = Integer.parseInt(scanner1.nextLine());
-                    } catch (NumberFormatException exception) {
-                        System.out.println("Программа не смогла прочитать выбранный вами пункт(");
-                        System.out.print("Пожалуйста повторите попытку: ");
-                        clintChose2 = Integer.parseInt(scanner1.nextLine());
-                    }
+                    clintChose2 = Validator.numberFormat();
 
-                    while (clintChose2 != 1 && clintChose2 != 2 && clintChose2 != 9) {
-                        try {
-                            if (count2 != 0) {
-                                System.out.print("Вы выбрали несуществуйщий пункт, повторите попытку: ");
-                                clintChose2 = Integer.parseInt(scanner1.nextLine());
-                            }
-                            if (clintChose2 == 1 || clintChose2 == 2 || clintChose2 == 9) {
-                                break;
-                            }
-                            count2++;
-                        } catch (NumberFormatException exception4) {
-                            System.out.print("Вам необходимо ввести номер пункта, это должно быть число!" + "\n" + "Повторите попытку ввода: ");
-                            clintChose2 = Integer.parseInt(scanner1.nextLine());
-                        }
-                    }
-
-                    boolean flag3 = true;
                     if (clintChose2 == 1) {
                         System.out.println("Введите текст, который хотите расшифровать: ");
                         textForRemaking = scanner1.nextLine();
@@ -217,28 +135,9 @@ public class MainApp {
                                 """);
                         System.out.print("Дорогой пользователь, помни, что значение твоего ключа может быть строго от 1 до 31: ");
 
-                        try {
-                            key = Integer.parseInt(scanner1.nextLine());
-                        } catch (NumberFormatException exception) {
-                            System.out.println("Вводите число!" + "\n" + "Повторите попытку ещё раз: ");
-                            key = Integer.parseInt(scanner1.nextLine());
-                        }
-
-                        while (flag3) {
-                            try {
-                                if (key >= 1 && key <= 31) {
-                                    System.out.println("Ключ введён верно!");
-                                    System.out.println("Вот расшифрованный текст: " + "\n" + Cipher.decrypt(textForRemaking, key));
-                                    flag3 = false;
-                                } else {
-                                    System.out.print("Ключ введён неверно! Повторите попытку:" + "\n");
-                                    key = Integer.parseInt(scanner1.nextLine());
-                                }
-                            } catch (NumberFormatException exception5) {
-                                System.out.print("Вводите число!" + "\n" + "Повторите попытку ввода: ");
-                                key = Integer.parseInt(scanner1.nextLine());
-                            }
-                        }
+                        key = Validator.keySet();
+                        String decryptedText = Cipher.decrypt(textForRemaking, key);
+                        System.out.println(decryptedText);
 
                     } else if (clintChose2 == 2) {
                         String filePath2, filePath3, reader2;
@@ -247,27 +146,9 @@ public class MainApp {
                         System.out.print("Введите путь к файлу из которого вам нужно расшифровать текст: ");
                         filePath2 = scanner3.nextLine();
                         System.out.print("Введите ключ: ");
-                        try {
-                            key = Integer.parseInt(scanner3.nextLine());
-                        } catch (NumberFormatException exception) {
-                            System.out.println("Вводите число!" + "\n" + "Повторите попытку ещё раз: ");
-                            key = Integer.parseInt(scanner3.nextLine());
-                        }
 
-                        while (flag3) {
-                            try {
-                                if (key >= 1 && key <= 31) {
-                                    System.out.println("Ключ введён верно!");
-                                    flag3 = false;
-                                } else {
-                                    System.out.print("Ключ введён неверно! Повторите попытку:" + "\n");
-                                    key = Integer.parseInt(scanner1.nextLine());
-                                }
-                            } catch (NumberFormatException exception6) {
-                                System.out.print("Ключ должен являться числом!" + "\n" + "Повторите попытку ввода ключа: ");
-                                key = Integer.parseInt(scanner1.nextLine());
-                            }
-                        }
+                        key = Validator.keySet();
+
                         System.out.print("Введите путь к файлу в который нужно будет записать расшифровку: ");
                         filePath3 = scanner3.nextLine();
 
@@ -296,31 +177,10 @@ public class MainApp {
                             9. Вернуться назад""");
                     System.out.println();
                     System.out.print("Выберите нужный вам способ расшифровки: ");
-                    int clintChose3, count3 = 0;
+                    int clintChose3;
 
-                    try {
-                        clintChose3 = Integer.parseInt(scanner1.nextLine());
-                    } catch (NumberFormatException exception) {
-                        System.out.println("Программа не смогла прочитать выбранный вами пункт(");
-                        System.out.print("Пожалуйста повторите попытку: ");
-                        clintChose3 = Integer.parseInt(scanner1.nextLine());
-                    }
+                    clintChose3 = Validator.numberFormat();
 
-                    while (clintChose3 != 1 && clintChose3 != 2 && clintChose3 != 9) {
-                        try {
-                            if (count3 != 0) {
-                                System.out.print("Вы выбрали несуществуйщий пункт, повторите попытку: ");
-                                clintChose3 = Integer.parseInt(scanner1.nextLine());
-                            }
-                            if (clintChose3 == 1 || clintChose3 == 2 || clintChose3 == 9) {
-                                break;
-                            }
-                            count3++;
-                        } catch (NumberFormatException exception7) {
-                            System.out.print("Вводите число, будьте осторожны!" + "Повторите попытку ввода: ");
-                            clintChose3 = Integer.parseInt(scanner1.nextLine());
-                        }
-                    }
                     if (clintChose3 == 1) {
                         System.out.println("Добро пожаловать в расшифровку методом BruteForce из консоли!" + "\n" + "Пожалуйста убедитесь, что вы вводите текст в 1 строчку, иначе лучше воспользуйтесь файлом!");
                         System.out.println("Введите текст, который вы желаете расшифровать и программа напишет вам все возможные варианты!" + "\n" + "Вам останется лишь выбрать какая расшифровка из них - верная");
@@ -339,6 +199,8 @@ public class MainApp {
                     } else {
                         break;
                     }
+                case 4:
+
             }
         }
         scanner1.close();
