@@ -1,7 +1,6 @@
 import java.io.IOException;
 
 public class StatisticAnalyser {
-    public static int finalCounter = 0;
     public static int statisticMethod (String filePath, String filePath2) throws IOException {
         int counter = 0, counter_2 = -1, key_2 = 0, keyCounter = 1, k = 0, m = 0, counter_3 = 0;
         String exampleString = FileManager.readFile(filePath);
@@ -36,7 +35,6 @@ public class StatisticAnalyser {
                 keyCounter++;
             }
         }
-        finalCounter = counter_2;
         return key_2;
     }
 }

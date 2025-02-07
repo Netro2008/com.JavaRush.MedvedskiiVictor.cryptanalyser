@@ -22,10 +22,12 @@ public class Validator {
                 continue;
             }
 
-            if (keySet <= 0 || keySet >= 32 && counter != 3) {
+            if (keySet < 0 || keySet > 32 && counter != 2) {
                 System.out.print("Ключ должен быть строго от 1 до 31!" + "\n" + "Повторите попытку ввода: ");
                 counter++;
+                continue;
             }
+            counter++;
         }
         return keySet;
     }

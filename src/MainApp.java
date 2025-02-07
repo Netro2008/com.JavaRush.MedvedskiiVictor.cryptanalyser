@@ -105,6 +105,7 @@ public class MainApp {
                             reader = FileManager.readFile(fileRead);
                             encryptedText = Cipher.encrypt(reader, key);
                             FileManager.writeFile(encryptedText, fileRead2);
+                            System.out.println("Мы записали зашифровку в файл под названием " + fileRead2);
 
                         } else {
                             break;
@@ -257,7 +258,7 @@ public class MainApp {
                             String readString = FileManager.readFile(filePath_2);
                             String doneString = Cipher.decrypt(readString, key);
                             FileManager.writeFile(doneString, filePath_3);
-                            System.out.println("Расшифровка закончена!" + " При ключе = " + key + " мы нашли " + StatisticAnalyser.finalCounter + " слов(а), которые похожи на русские слова!");
+                            System.out.println("Расшифровка закончена!" + " При ключе = " + key + " текст наиболее похож на русский!");
                             System.out.println("Расшифровку мы записали в файл " + filePath_3);
                         } else {
                             break;
