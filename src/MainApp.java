@@ -36,11 +36,13 @@ public class MainApp {
             System.out.print("Выберите нужный вам пункт: ");
 
             while (userChoice < 0 || userChoice > 4) {
-                userChoice = Integer.parseInt(scanner1.nextLine());
                 try {
-                    System.out.print("Вы выбрали несуществующий пункт меню! Будьте внимательны!!!" + "\n" + "Повторите попытку ввода снова: ");
+                    userChoice = Integer.parseInt(scanner1.nextLine());
                 } catch (NumberFormatException exception1) {
                     System.out.print("Вы должны вводить число!!!" + "\n" + "Выберите пункт ещё раз: ");
+                }
+                if (userChoice < 0 || userChoice > 4) {
+                    System.out.print("Вы выбрали несуществующий пункт меню!" + "Повторите попытку: ");
                 }
 
             }
@@ -62,6 +64,9 @@ public class MainApp {
                     int clintChose1;
 
                     clintChose1 = Validator.numberFormat();
+                    if (Validator.counter == 3) {
+                        continue;
+                    }
 
                     if (clintChose1 == 1) {
                         System.out.print("Введите текст в консоль для обработки: " + "\n");
@@ -73,6 +78,9 @@ public class MainApp {
                         System.out.print("Дорогой пользователь, помни, что значение твоего ключа может быть строго от 1 до 31: ");
 
                         key = Validator.keySet();
+                        if (Validator.counter == 3) {
+                            continue;
+                        }
                         String encryptedText = Cipher.encrypt(textForRemaking, key);
                         System.out.println(encryptedText);
 
@@ -81,12 +89,21 @@ public class MainApp {
                         String encryptedText;
                         System.out.print("Введите путь к файлу, в котором находится текст, который необходимо зашифровать: ");
                         fileRead = Validator.filePathRead();
+                        if (Validator.counter == 3) {
+                            continue;
+                        }
                         System.out.print("Введите ключ: ");
 
                         key = Validator.keySet();
+                        if (Validator.counter == 3) {
+                            continue;
+                        }
 
                         System.out.print("Введите путь к файлу, в который нужно будет записать зашифровку: ");
                         fileRead2 = Validator.filePathRead();
+                        if (Validator.counter == 3) {
+                            continue;
+                        }
                         reader = FileManager.readFile(fileRead);
                         encryptedText = Cipher.encrypt(reader, key);
                         FileManager.writeFile(encryptedText, fileRead2);
@@ -110,6 +127,9 @@ public class MainApp {
                     System.out.print("Выберите пункт меню: ");
 
                     clintChose2 = Validator.numberFormat();
+                    if (Validator.counter == 3) {
+                        continue;
+                    }
 
                     if (clintChose2 == 1) {
                         System.out.println("Введите текст, который хотите расшифровать: ");
@@ -121,6 +141,9 @@ public class MainApp {
                         System.out.print("Дорогой пользователь, помни, что значение твоего ключа может быть строго от 1 до 31: ");
 
                         key = Validator.keySet();
+                        if (Validator.counter == 3) {
+                            continue;
+                        }
                         String decryptedText = Cipher.decrypt(textForRemaking, key);
                         System.out.println(decryptedText);
 
@@ -129,12 +152,21 @@ public class MainApp {
                         String decryptedText;
                         System.out.print("Введите путь к файлу из которого вам нужно расшифровать текст: ");
                         filePath2 = Validator.filePathRead();
+                        if (Validator.counter == 3) {
+                            continue;
+                        }
                         System.out.print("Введите ключ: ");
 
                         key = Validator.keySet();
+                        if (Validator.counter == 3) {
+                            continue;
+                        }
 
                         System.out.print("Введите путь к файлу в который нужно будет записать расшифровку: ");
                         filePath3 = Validator.filePathRead();
+                        if (Validator.counter == 3) {
+                            continue;
+                        }
                         reader2 = FileManager.readFile(filePath2);
                         decryptedText = Cipher.decrypt(reader2, key);
                         FileManager.writeFile(decryptedText, filePath3);
@@ -158,6 +190,9 @@ public class MainApp {
                     int clintChose3;
 
                     clintChose3 = Validator.numberFormat();
+                    if (Validator.counter == 3) {
+                        continue;
+                    }
 
                     if (clintChose3 == 1) {
                         System.out.println("Добро пожаловать в расшифровку методом BruteForce из консоли!" + "\n" + "Пожалуйста убедитесь, что вы вводите текст в 1 строчку, иначе лучше воспользуйтесь файлом!");
@@ -170,6 +205,9 @@ public class MainApp {
                         System.out.println("Добро пожаловать в расшифровку методом BruteForce с файла!" + "\n" + "Помните, этот способ создан, чтобы расшифровать файл, если у вас нету ключа, по-другому говоря методом подборки!");
                         System.out.print("Введите путь к файлу, который вы хотите расшифровать с помощью метода BruteForce: ");
                         String filePath = Validator.filePathRead();
+                        if (Validator.counter == 3) {
+                            continue;
+                        }
                         BruteForce.decryptByBruteForceFiles(filePath, Cipher.ALPHABET);
                         System.out.println("Спасибо, что воспользовались нашей программой, обязательно заглядывайте ещё!!");
 
@@ -182,10 +220,19 @@ public class MainApp {
                     System.out.println("Важно помнить, что метод может допустить ошибку, но вероятность этого крайне мала, если метод вам выдал очень странный текст, воспользуйтесь методом BruteForce!");
                     System.out.println("Введите путь к файлу в котором находится пример русского текста, любого, но чем больше текст, тем больше вероятность, что программа сработает корректно!");
                     String filePath_1 = Validator.filePathRead();
+                    if (Validator.counter == 3) {
+                        continue;
+                    }
                     System.out.println("Введите путь к файлу, где находится зашифрованный текст!");
                     String filePath_2 = Validator.filePathRead();
+                    if (Validator.counter == 3) {
+                        continue;
+                    }
                     System.out.print("Введите путь к файлу, в который нужно будет записать расшифровку, текста: ");
                     String filePath_3 = Validator.filePathRead();
+                    if (Validator.counter == 3) {
+                        continue;
+                    }
 
                     key = StatisticAnalyser.statisticMethod(filePath_1, filePath_2);
                     String readString = FileManager.readFile(filePath_2);

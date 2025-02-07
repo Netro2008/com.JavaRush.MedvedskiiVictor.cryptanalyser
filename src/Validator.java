@@ -37,19 +37,20 @@ public class Validator {
         while (true) {
             try {
                 userChoice = Integer.parseInt(scanner.nextLine());
-                if (userChoice != 1 && userChoice != 2 && userChoice != 9) {
-                    System.out.println("Вы выбрали несуществуйщий пункт, повторите попытку: ");
-                    continue;
-                }
-                break;
             } catch (NumberFormatException exception) {
                 System.out.print("Вы выбираете пункт в меню, это должно быть число!" + "\n" + "Повторите попытку: ");
                 counter++;
+            }
+            if (userChoice != 1 && userChoice != 2 && userChoice != 9) {
+                System.out.println("Вы выбрали несуществуйщий пункт, повторите попытку: ");
+                counter++;
+                continue;
             }
             if (counter == 3) {
                 System.out.println("Вы ввели ключ неправильно 3 раза, убедитесь, что вы делаете то, что нужно и перезапустите программу!");
                 break;
             }
+            break;
         }
         return userChoice;
     }
