@@ -2,7 +2,7 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class Validator {
-    public static int counter;
+    public static int counter = 0;
 
     public static int keySet () {
         Scanner scanner5 = new Scanner(System.in);
@@ -14,11 +14,11 @@ public class Validator {
             } catch (NumberFormatException exception) {
                 keySet = -1;
                 System.out.println("Вводите число!" + "\n" + "Повторите попытку снова:");
-                counter++;
             }
 
             if (keySet <= 0 || keySet >= 32) {
                 System.out.println("Ключ должен быть строго от 1 до 31!");
+                counter++;
             }
 
             if (counter == 3) {

@@ -20,7 +20,7 @@ public class MainApp {
         }
 
         Scanner scanner1 = new Scanner(System.in);
-        int userChoice;
+        int userChoice = -1;
         boolean flag2 = true;
         while (flag2 && Validator.counter != 3) {
             textForRemaking = "";
@@ -34,22 +34,15 @@ public class MainApp {
                     0. Выход""");
             System.out.println();
             System.out.print("Выберите нужный вам пункт: ");
-            try {
-                userChoice = Integer.parseInt(scanner1.nextLine());
-            } catch (NumberFormatException exception) {
-                System.out.println("Программа не смогла прочитать выбранный вами пункт(");
-                System.out.print("Пожалуйста повторите попытку: ");
-                userChoice = Integer.parseInt(scanner1.nextLine());
-            }
 
             while (userChoice < 0 || userChoice > 4) {
+                userChoice = Integer.parseInt(scanner1.nextLine());
                 try {
                     System.out.print("Вы выбрали несуществующий пункт меню! Будьте внимательны!!!" + "\n" + "Повторите попытку ввода снова: ");
-                    userChoice = Integer.parseInt(scanner1.nextLine());
                 } catch (NumberFormatException exception1) {
                     System.out.print("Вы должны вводить число!!!" + "\n" + "Выберите пункт ещё раз: ");
-                    userChoice = Integer.parseInt(scanner1.nextLine());
                 }
+
             }
             switch (userChoice) {
                 case 0:
