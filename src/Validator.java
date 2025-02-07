@@ -19,16 +19,6 @@ public class Validator {
         return keySet;
     }
 
-//    try {
-//        clintChose1 = Integer.parseInt(scanner1.nextLine());
-//        if (clintChose1 != 1 && clintChose1 != 2 && clintChose1 != 9) {
-//            System.out.print("Вы выбрали несуществуйщий пункт, повторите попытку: ");
-//            continue;
-//        }
-//        break;
-//    } catch (NumberFormatException exception2) {
-//        System.out.print("Вы выбираете пункт в меню, это должно быть число!" + "\n" + "Повторите попытку: ");
-//    }
     public static int numberFormat () {
         int userChoice;
         Scanner scanner = new Scanner(System.in);
@@ -47,4 +37,5 @@ public class Validator {
         }
         return userChoice;
     }
+
 }

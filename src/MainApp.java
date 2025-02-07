@@ -200,7 +200,23 @@ public class MainApp {
                         break;
                     }
                 case 4:
+                    System.out.println("Добро пожаловать в метод статистического анализа!" + "\n" +
+                            "Данный метод принимает файл с любым русским текстом и на фоне него анализирует зашифрованный вами файл и пытается его расшифровать");
+                    System.out.println("Важно помнить, что метод может допустить ошибку, но вероятность этого крайне мала, если метод вам выдал очень странный текст, воспользуйтесь методом BruteForce!");
+                    Scanner scanner = new Scanner(System.in);
+                    System.out.println("Введите путь к файлу в котором находится пример русского текста, любого, но чем больше текст, тем больше вероятность, что программа сработает корректно!");
+                    String filePath_1 = scanner.nextLine();
+                    System.out.println("Введите путь к файлу, где находится зашифрованный текст!");
+                    String filePath_2 = scanner.nextLine();
+                    System.out.print("Введите путь к файлу, в который нужно будет записать расшифровку, текста: ");
+                    String filePath_3 = scanner.nextLine();
 
+                    key = StatisticAnalyser.statisticMethod(filePath_1, filePath_2);
+                    String readString = FileManager.readFile(filePath_2);
+                    String doneString = Cipher.decrypt(readString, key);
+                    FileManager.writeFile(doneString, filePath_3);
+                    System.out.println("Расшифровка закончена!" + "При ключе = " + key + " мы нашли " + StatisticAnalyser.finalCounter + " слов, которые похожи на русские слова!");
+                    System.out.println("Расшифровку мы записали в файл " + filePath_3);
             }
         }
         scanner1.close();
