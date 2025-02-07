@@ -17,13 +17,13 @@ public class Validator {
                 keySet = Integer.parseInt(scanner5.nextLine());
             } catch (NumberFormatException exception) {
                 keySet = -1;
-                System.out.println("Вводите число!" + "\n" + "Повторите попытку снова:");
+                System.out.print("Вводите число!" + "\n" + "Повторите попытку снова:");
                 counter++;
                 continue;
             }
 
             if (keySet <= 0 || keySet >= 32 && counter != 3) {
-                System.out.println("Ключ должен быть строго от 1 до 31!");
+                System.out.print("Ключ должен быть строго от 1 до 31!" + "\n" + "Повторите попытку ввода: ");
                 counter++;
             }
         }
@@ -47,7 +47,9 @@ public class Validator {
             try {
                 FileManager.readFile(filePath);
             } catch (IOException exception) {
-                System.out.print("Проверьте путь, который вы написали!" + "\n" + "Повторите попытку: ");
+                if (counter != 2) {
+                    System.out.print("Проверьте путь, который вы написали!" + "\n" + "Повторите попытку: ");
+                }
                 filePath = null;
                 counter++;
                 continue;
