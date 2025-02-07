@@ -22,7 +22,7 @@ public class Validator {
                 continue;
             }
 
-            if (keySet <= 0 || keySet >= 32) {
+            if (keySet <= 0 || keySet >= 32 && counter != 3) {
                 System.out.println("Ключ должен быть строго от 1 до 31!");
                 counter++;
             }
@@ -41,6 +41,9 @@ public class Validator {
                         + "\n" + "Мы завершили работу программы!");
                 break;
             }
+            if (filePath == null) {
+                filePath = scanner.nextLine();
+            }
             try {
                 FileManager.readFile(filePath);
             } catch (IOException exception) {
@@ -58,22 +61,22 @@ public class Validator {
 
     public static int choseMenu () {
         Scanner scanner = new Scanner(System.in);
-        scanner.nextLine();
-        int menuChose, counter = 0;
+        int menuChose, counter1 = 0;
 
         while (true) {
             try {
-                if (counter != 0) {
-                    System.out.print("Вы выбрали несуществующий пункт меню, повторите попытку снова: ");
-                }
                 menuChose = Integer.parseInt(scanner.nextLine());
                 if (menuChose == 1 || menuChose == 2 || menuChose == 9) {
                     break;
                 }
-                counter++;
             } catch (NumberFormatException exception) {
                 System.out.println("Вы должны вводить число!");
+                continue;
             }
+            if (counter1 != 0) {
+                System.out.print("Вы выбрали несуществующий пункт меню, повторите попытку снова: ");
+            }
+            counter1++;
         }
         return menuChose;
     }
