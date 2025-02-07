@@ -64,10 +64,7 @@ public class MainApp {
                     System.out.print("Выберите откуда вы будете считывать текст: ");
                     int clintChose1;
 
-                    clintChose1 = Validator.numberFormat();
-                    if (Validator.counter == 3) {
-                        continue;
-                    }
+                    clintChose1 = Integer.parseInt(scanner1.nextLine());
 
                     if (clintChose1 == 1) {
                         System.out.print("Введите текст в консоль для обработки: " + "\n");
@@ -127,10 +124,7 @@ public class MainApp {
                     int clintChose2;
                     System.out.print("Выберите пункт меню: ");
 
-                    clintChose2 = Validator.numberFormat();
-                    if (Validator.counter == 3) {
-                        continue;
-                    }
+                    clintChose2 = Integer.parseInt(scanner1.nextLine());
 
                     if (clintChose2 == 1) {
                         System.out.println("Введите текст, который хотите расшифровать: ");
@@ -190,10 +184,7 @@ public class MainApp {
                     System.out.print("Выберите нужный вам способ расшифровки: ");
                     int clintChose3;
 
-                    clintChose3 = Validator.numberFormat();
-                    if (Validator.counter == 3) {
-                        continue;
-                    }
+                    clintChose3 = Integer.parseInt(scanner1.nextLine());
 
                     if (clintChose3 == 1) {
                         System.out.println("Добро пожаловать в расшифровку методом BruteForce из консоли!" + "\n" + "Пожалуйста убедитесь, что вы вводите текст в 1 строчку, иначе лучше воспользуйтесь файлом!");
