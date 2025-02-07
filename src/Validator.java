@@ -9,21 +9,22 @@ public class Validator {
         int keySet = -1;
         counter = 0;
         while (keySet <= 0 || keySet >= 32) {
+            if (counter == 3) {
+                System.out.println("Вы ввели ключ неправильно 3 раза, убедитесь, что вы делаете то, что нужно и перезапустите программу!");
+                break;
+            }
             try {
                 keySet = Integer.parseInt(scanner5.nextLine());
             } catch (NumberFormatException exception) {
                 keySet = -1;
                 System.out.println("Вводите число!" + "\n" + "Повторите попытку снова:");
+                counter++;
+                continue;
             }
 
             if (keySet <= 0 || keySet >= 32) {
                 System.out.println("Ключ должен быть строго от 1 до 31!");
                 counter++;
-            }
-
-            if (counter == 3) {
-                System.out.println("Вы ввели ключ неправильно 3 раза, убедитесь, что вы делаете то, что нужно и перезапустите программу!");
-                break;
             }
         }
         return keySet;
@@ -35,20 +36,21 @@ public class Validator {
         counter = 0;
 
         while (true) {
+            if (counter == 3) {
+                System.out.println("Вы ввели ключ неправильно 3 раза, убедитесь, что вы делаете то, что нужно и перезапустите программу!");
+                break;
+            }
             try {
                 userChoice = Integer.parseInt(scanner.nextLine());
             } catch (NumberFormatException exception) {
                 System.out.print("Вы выбираете пункт в меню, это должно быть число!" + "\n" + "Повторите попытку: ");
                 counter++;
+                continue;
             }
             if (userChoice != 1 && userChoice != 2 && userChoice != 9) {
                 System.out.println("Вы выбрали несуществуйщий пункт, повторите попытку: ");
                 counter++;
                 continue;
-            }
-            if (counter == 3) {
-                System.out.println("Вы ввели ключ неправильно 3 раза, убедитесь, что вы делаете то, что нужно и перезапустите программу!");
-                break;
             }
             break;
         }
@@ -61,19 +63,20 @@ public class Validator {
         counter = 0;
 
         while (true) {
+            if (counter == 3) {
+                System.out.println("Вы ввели путь к файлу неверно 3 раза подряд!" + "Убедитесь, что вы выбрали правильный пункт меню и запустите программу снова!"
+                        + "\n" + "Мы завершили работу программы!");
+                break;
+            }
             try {
                 FileManager.readFile(filePath);
             } catch (IOException exception) {
                 System.out.println("Проверьте путь, который вы написали!");
                 filePath = null;
                 counter++;
+                continue;
             }
             if (filePath != null) {
-                break;
-            }
-            if (counter == 3) {
-                System.out.println("Вы ввели путь к файлу неверно 3 раза подряд!" + "Убедитесь, что вы выбрали правильный пункт меню и запустите программу снова!"
-                + "\n" + "Мы завершили работу программы!");
                 break;
             }
         }

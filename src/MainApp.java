@@ -40,9 +40,10 @@ public class MainApp {
                     userChoice = Integer.parseInt(scanner1.nextLine());
                 } catch (NumberFormatException exception1) {
                     System.out.print("Вы должны вводить число!!!" + "\n" + "Выберите пункт ещё раз: ");
+                    continue;
                 }
                 if (userChoice < 0 || userChoice > 4) {
-                    System.out.print("Вы выбрали несуществующий пункт меню!" + "Повторите попытку: ");
+                    System.out.print("Вы выбрали несуществующий пункт меню!" + " Повторите попытку: ");
                 }
 
             }
