@@ -1,4 +1,3 @@
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Scanner;
 
@@ -23,7 +22,7 @@ public class MainApp {
         Scanner scanner1 = new Scanner(System.in);
         int userChoice;
         boolean flag2 = true;
-        while (flag2) {
+        while (flag2 && Validator.counter != 3) {
             textForRemaking = "";
             System.out.println();
             System.out.println("""
@@ -86,25 +85,18 @@ public class MainApp {
 
                     } else if (clintChose1 == 2) {
                         String fileRead, fileRead2, reader;
-                        Scanner scanner2 = new Scanner(System.in);
                         String encryptedText;
                         System.out.print("Введите путь к файлу, в котором находится текст, который необходимо зашифровать: ");
-                        fileRead = scanner2.nextLine();
+                        fileRead = Validator.filePathRead();
                         System.out.print("Введите ключ: ");
 
                         key = Validator.keySet();
 
                         System.out.print("Введите путь к файлу, в который нужно будет записать зашифровку: ");
-                        fileRead2 = scanner2.nextLine();
-                        try {
-                            reader = FileManager.readFile(fileRead);
-                            encryptedText = Cipher.encrypt(reader, key);
-                            FileManager.writeFile(encryptedText, fileRead2);
-                        } catch (FileNotFoundException exception) {
-                            System.out.println("Извините программа не смогла найти какой-то из файлов!" + "\n" + "Возможно вы неправильно ввели их путь, проверьте правильность написания пути и попробуйте ещё раз!");
-                            break;
-                        }
-                        System.out.println("Сообщение в вашем файле зашифровано и перемещено в файл под названием \"" + fileRead2 + "\"");
+                        fileRead2 = Validator.filePathRead();
+                        reader = FileManager.readFile(fileRead);
+                        encryptedText = Cipher.encrypt(reader, key);
+                        FileManager.writeFile(encryptedText, fileRead2);
 
                     } else {
                         break;
@@ -141,25 +133,18 @@ public class MainApp {
 
                     } else if (clintChose2 == 2) {
                         String filePath2, filePath3, reader2;
-                        Scanner scanner3 = new Scanner(System.in);
                         String decryptedText;
                         System.out.print("Введите путь к файлу из которого вам нужно расшифровать текст: ");
-                        filePath2 = scanner3.nextLine();
+                        filePath2 = Validator.filePathRead();
                         System.out.print("Введите ключ: ");
 
                         key = Validator.keySet();
 
                         System.out.print("Введите путь к файлу в который нужно будет записать расшифровку: ");
-                        filePath3 = scanner3.nextLine();
-
-                        try {
-                            reader2 = FileManager.readFile(filePath2);
-                            decryptedText = Cipher.decrypt(reader2, key);
-                            FileManager.writeFile(decryptedText, filePath3);
-                        } catch (FileNotFoundException exception) {
-                            System.out.println("Извините программа не смогла найти какой-то из файлов!" + "\n" + "Возможно вы неправильно ввели их путь, проверьте правильность написания пути и попробуйте ещё раз!");
-                            break;
-                        }
+                        filePath3 = Validator.filePathRead();
+                        reader2 = FileManager.readFile(filePath2);
+                        decryptedText = Cipher.decrypt(reader2, key);
+                        FileManager.writeFile(decryptedText, filePath3);
 
                         System.out.println("Сообщение в вашем файле разшифровано и перемещено в файл под названием \"" + filePath3 + "\"" + "\n");
                     } else {
@@ -189,10 +174,9 @@ public class MainApp {
                         BruteForce.decryptByBruteForceConsole(bruteForceInput, Cipher.ALPHABET);
 
                     } else if (clintChose3 == 2) {
-                        Scanner scanner4 = new Scanner(System.in);
                         System.out.println("Добро пожаловать в расшифровку методом BruteForce с файла!" + "\n" + "Помните, этот способ создан, чтобы расшифровать файл, если у вас нету ключа, по-другому говоря методом подборки!");
                         System.out.print("Введите путь к файлу, который вы хотите расшифровать с помощью метода BruteForce: ");
-                        String filePath = scanner4.nextLine();
+                        String filePath = Validator.filePathRead();
                         BruteForce.decryptByBruteForceFiles(filePath, Cipher.ALPHABET);
                         System.out.println("Спасибо, что воспользовались нашей программой, обязательно заглядывайте ещё!!");
 
@@ -203,13 +187,12 @@ public class MainApp {
                     System.out.println("Добро пожаловать в метод статистического анализа!" + "\n" +
                             "Данный метод принимает файл с любым русским текстом и на фоне него анализирует зашифрованный вами файл и пытается его расшифровать");
                     System.out.println("Важно помнить, что метод может допустить ошибку, но вероятность этого крайне мала, если метод вам выдал очень странный текст, воспользуйтесь методом BruteForce!");
-                    Scanner scanner = new Scanner(System.in);
                     System.out.println("Введите путь к файлу в котором находится пример русского текста, любого, но чем больше текст, тем больше вероятность, что программа сработает корректно!");
-                    String filePath_1 = scanner.nextLine();
+                    String filePath_1 = Validator.filePathRead();
                     System.out.println("Введите путь к файлу, где находится зашифрованный текст!");
-                    String filePath_2 = scanner.nextLine();
+                    String filePath_2 = Validator.filePathRead();
                     System.out.print("Введите путь к файлу, в который нужно будет записать расшифровку, текста: ");
-                    String filePath_3 = scanner.nextLine();
+                    String filePath_3 = Validator.filePathRead();
 
                     key = StatisticAnalyser.statisticMethod(filePath_1, filePath_2);
                     String readString = FileManager.readFile(filePath_2);
