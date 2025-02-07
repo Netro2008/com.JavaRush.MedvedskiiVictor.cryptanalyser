@@ -30,33 +30,6 @@ public class Validator {
         return keySet;
     }
 
-    public static int numberFormat () {
-        int userChoice = -1;
-        Scanner scanner = new Scanner(System.in);
-        counter = 0;
-
-        while (true) {
-            if (counter == 3) {
-                System.out.println("Вы ввели ключ неправильно 3 раза, убедитесь, что вы делаете то, что нужно и перезапустите программу!");
-                break;
-            }
-            try {
-                userChoice = Integer.parseInt(scanner.nextLine());
-            } catch (NumberFormatException exception) {
-                System.out.print("Вы выбираете пункт в меню, это должно быть число!" + "\n" + "Повторите попытку: ");
-                counter++;
-                continue;
-            }
-            if (userChoice != 1 && userChoice != 2 && userChoice != 9) {
-                System.out.println("Вы выбрали несуществуйщий пункт, повторите попытку: ");
-                counter++;
-                continue;
-            }
-            break;
-        }
-        return userChoice;
-    }
-
     public static String filePathRead () {
         Scanner scanner = new Scanner(System.in);
         String filePath = scanner.nextLine();
@@ -81,5 +54,27 @@ public class Validator {
             }
         }
         return filePath;
+    }
+
+    public static int choseMenu () {
+        Scanner scanner = new Scanner(System.in);
+        scanner.nextLine();
+        int menuChose, counter = 0;
+
+        while (true) {
+            try {
+                if (counter != 0) {
+                    System.out.print("Вы выбрали несуществующий пункт меню, повторите попытку снова: ");
+                }
+                menuChose = Integer.parseInt(scanner.nextLine());
+                if (menuChose == 1 || menuChose == 2 || menuChose == 9) {
+                    break;
+                }
+                counter++;
+            } catch (NumberFormatException exception) {
+                System.out.println("Вы должны вводить число!");
+            }
+        }
+        return menuChose;
     }
 }
