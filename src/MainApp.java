@@ -219,6 +219,7 @@ public class MainApp {
                                 1. Расшифровка текста с помощью статистического анализа
                                 9. Вернуться назад""");
                         System.out.println();
+                        System.out.print("Выберите пункт меню: ");
 
                         int userChoice2;
                         while (true) {
@@ -256,7 +257,7 @@ public class MainApp {
                             String readString = FileManager.readFile(filePath_2);
                             String doneString = Cipher.decrypt(readString, key);
                             FileManager.writeFile(doneString, filePath_3);
-                            System.out.println("Расшифровка закончена!" + "При ключе = " + key + " мы нашли " + StatisticAnalyser.finalCounter + " слов, которые похожи на русские слова!");
+                            System.out.println("Расшифровка закончена!" + " При ключе = " + key + " мы нашли " + StatisticAnalyser.finalCounter + " слов(а), которые похожи на русские слова!");
                             System.out.println("Расшифровку мы записали в файл " + filePath_3);
                         } else {
                             break;

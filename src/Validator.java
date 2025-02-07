@@ -37,7 +37,7 @@ public class Validator {
 
         while (true) {
             if (counter == 3) {
-                System.out.println("Вы ввели путь к файлу неверно 3 раза подряд!" + "Убедитесь, что вы выбрали правильный пункт меню и запустите программу снова!"
+                System.out.println("Вы ввели путь к файлу неверно 3 раза подряд!" + " Убедитесь, что вы выбрали правильный пункт меню и запустите программу снова!"
                         + "\n" + "Мы завершили работу программы!");
                 break;
             }
@@ -47,7 +47,7 @@ public class Validator {
             try {
                 FileManager.readFile(filePath);
             } catch (IOException exception) {
-                System.out.println("Проверьте путь, который вы написали!");
+                System.out.print("Проверьте путь, который вы написали!" + "\n" + "Повторите попытку: ");
                 filePath = null;
                 counter++;
                 continue;
@@ -70,7 +70,7 @@ public class Validator {
                     break;
                 }
             } catch (NumberFormatException exception) {
-                System.out.println("Вы должны вводить число!");
+                System.out.print("Вы должны вводить число!" + " Повторите попытку ввода: ");
                 continue;
             }
             if (counter1 != 0) {

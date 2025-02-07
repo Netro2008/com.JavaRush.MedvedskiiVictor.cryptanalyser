@@ -13,7 +13,6 @@ public class StatisticAnalyser {
 
         while (keyCounter < 32) {
             decrypting = Cipher.decrypt(strings_2[k], keyCounter);
-            System.out.println(decrypting);
             if (strings_1[m].equalsIgnoreCase(decrypting)) {
                 counter++;
             }
