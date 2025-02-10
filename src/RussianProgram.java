@@ -1,19 +1,15 @@
 import java.io.IOException;
 import java.util.Scanner;
 
-public class HurtOfProgram {
+public class RussianProgram {
     public static int key = -1;
-    public static String textForRemaking;
+    public static String textForRemakingRussian;
 
     public static void programStart () throws IOException {
 
         System.out.println("Дорогой пользователь, добро пожаловать в мою программу по обработке шифра Цезаря!");
         System.out.println("Алфавит приложения - русские буквы, пишите русскими буквами!" + "\n" + "Вот весь алфавит: ");
         for (int i = 0; i < Cipher.ALPHABET.size(); i++) {
-            if (i == Cipher.ALPHABET.size() -1) {
-                System.out.println(Cipher.ALPHABET.get(i));
-                break;
-            }
             System.out.print(Cipher.ALPHABET.get(i) + " ");
             if (i == 8 || i == 16 || i == 24 || i == 32) {
                 System.out.println();
@@ -24,7 +20,7 @@ public class HurtOfProgram {
         int userChoice;
         boolean flag2 = true;
         while (flag2 && Validator.counter != 3) {
-            textForRemaking = "";
+            textForRemakingRussian = "";
             System.out.println();
             System.out.println("""
                     Меню программы (полный функционал)
@@ -68,7 +64,7 @@ public class HurtOfProgram {
 
                         if (clintChose1 == 1) {
                             System.out.print("Введите текст в консоль для обработки: " + "\n");
-                            textForRemaking = scanner1.nextLine();
+                            textForRemakingRussian = scanner1.nextLine();
                             System.out.print("""
                                     Введите ключ (количество символов на которое будет осуществляться сдвиг)!
                                     Убидитесь что прочитали текст ниже \uD83D\uDC47
@@ -79,7 +75,7 @@ public class HurtOfProgram {
                             if (Validator.counter == 3) {
                                 continue;
                             }
-                            String encryptedText = Cipher.encrypt(textForRemaking, key);
+                            String encryptedText = Cipher.encrypt(textForRemakingRussian, key);
                             System.out.println("Результат мы вывели на экран строкой ниже!");
                             System.out.println(encryptedText);
 
@@ -130,7 +126,7 @@ public class HurtOfProgram {
 
                         if (clintChose2 == 1) {
                             System.out.println("Введите текст, который хотите расшифровать: ");
-                            textForRemaking = scanner1.nextLine();
+                            textForRemakingRussian = scanner1.nextLine();
                             System.out.print("""
                                     Введите ключ (количество символов на которое будет осуществляться сдвиг)!
                                     Убидитесь что прочитали текст ниже \uD83D\uDC47
@@ -141,7 +137,7 @@ public class HurtOfProgram {
                             if (Validator.counter == 3) {
                                 continue;
                             }
-                            String decryptedText = Cipher.decrypt(textForRemaking, key);
+                            String decryptedText = Cipher.decrypt(textForRemakingRussian, key);
                             System.out.println("Расшифрованный текст мы вам написали прямо под этим сообщением!");
                             System.out.println(decryptedText);
 

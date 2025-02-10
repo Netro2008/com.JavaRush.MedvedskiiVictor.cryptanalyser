@@ -19,7 +19,11 @@ public class BruteForce {
                 bruteForce = Cipher.decrypt(bruteForcing, index3);
                 fos3.write(bruteForce.getBytes());
             } catch (IOException e) {
-                System.out.println("Произошла ошибка... Попробуйте снова!");
+                if (Cipher.ALPHABET.equals(Cipher.ENGLISH_ALPHABET)) {
+                    System.out.print("Something went wrong... Try again please: ");
+                } else {
+                    System.out.println("Произошла ошибка... Попробуйте снова: ");
+                }
             }
             indexesOfFiles3++;
             index3++;
@@ -30,7 +34,11 @@ public class BruteForce {
         index3 = 1;
         while (index3 < alphabet.size() - 1) {
             bruteForce2 = Cipher.decrypt(encryptedText, index3);
-            System.out.println("Вот расшифровка при ключе равном " + index3);
+            if (Cipher.ALPHABET.equals(Cipher.ENGLISH_ALPHABET)) {
+                System.out.println("Here is the decryption with the key " + index3);
+            } else {
+                System.out.println("Вот расшифровка при ключе равном " + index3);
+            }
             System.out.println(bruteForce2);
             System.out.println();
 

@@ -1,18 +1,50 @@
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Scanner;
 
 public class Cipher {
     public static String textForEncrypt = "";
     public static String textForDecrypt = "";
 
-    protected static List<Character> ALPHABET = Arrays.asList('а', 'б',
+    protected static final List<Character> RUSSIAN_ALPHABET = Arrays.asList('а', 'б',
             'в', 'г', 'д', 'е', 'ё', 'ж', 'з', 'и', 'й', 'к', 'л', 'м', 'н', 'о', 'п', 'р', 'с', 'т', 'у',
             'ф', 'х', 'ц', 'ч', 'ш', 'щ', 'ъ', 'ы', 'ь', 'э', 'ю', 'я');
 
+    protected static final List<Character> ENGLISH_ALPHABET = Arrays.asList('a', 'b',
+            'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't',
+            'u', 'v', 'w', 'x', 'y', 'z');
 
-    public Cipher(ArrayList<Character> list) {
-        ALPHABET = list;
+    protected static List<Character> ALPHABET;
+
+
+    public static void setLanguage() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("""
+                Our supporting languages
+                1. English
+                2. Russian""");
+        System.out.println();
+        System.out.print("Choose the language of the program that you need: ");
+        int clintChose;
+        while (true) {
+            try {
+                clintChose = Integer.parseInt(scanner.nextLine());
+            } catch (NumberFormatException exception) {
+                System.out.print("You must write a number!" + " Be careful and try again: ");
+                continue;
+            }
+
+            if (clintChose == 1) {
+                ALPHABET = ENGLISH_ALPHABET;
+            } else if (clintChose == 2) {
+                ALPHABET = RUSSIAN_ALPHABET;
+            } else {
+                System.out.print("You have selected a non-existent language! Please try again: ");
+                continue;
+            }
+            break;
+        }
+        System.out.println();
     }
 
     public static String encrypt(String text, int key) {
