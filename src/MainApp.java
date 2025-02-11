@@ -1,13 +1,10 @@
-import java.io.IOException;
-
 public class MainApp {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         Cipher.setLanguage();
-
-        if (Cipher.ALPHABET.equals(Cipher.RUSSIAN_ALPHABET)) {
-            RussianProgram.programStart();
-        } else {
-            EnglishProgram.startOfTheProgram();
+        try {
+            MainCode.programStart();
+        } catch (Exception exception) {
+            System.out.println("The program was closed! If it was closed by mistake start it again!");
         }
     }
 }

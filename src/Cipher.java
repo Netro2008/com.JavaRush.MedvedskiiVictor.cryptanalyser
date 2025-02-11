@@ -22,7 +22,8 @@ public class Cipher {
         System.out.println("""
                 Our supporting languages
                 1. English
-                2. Russian""");
+                2. Russian
+                0. Exit""");
         System.out.println();
         System.out.print("Choose the language of the program that you need: ");
         int clintChose;
@@ -38,6 +39,8 @@ public class Cipher {
                 ALPHABET = ENGLISH_ALPHABET;
             } else if (clintChose == 2) {
                 ALPHABET = RUSSIAN_ALPHABET;
+            } else if (clintChose == 0) {
+                break;
             } else {
                 System.out.print("You have selected a non-existent language! Please try again: ");
                 continue;
