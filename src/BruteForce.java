@@ -13,7 +13,7 @@ public class BruteForce {
         indexesOfFiles3 = 1;
         String bruteForcing;
 
-        while (index3 < alphabet.size()) {
+        while (index3 < alphabet.size() - 1) {
             try (FileOutputStream fos3 = new FileOutputStream("decryptedFile.txt_" + indexesOfFiles3)) {
                 bruteForcing = FileManager.readFile(filepath);
                 bruteForce = Cipher.decrypt(bruteForcing, index3);
