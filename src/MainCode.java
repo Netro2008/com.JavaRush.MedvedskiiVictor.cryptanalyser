@@ -8,6 +8,7 @@ public class MainCode {
 
     public static void programStart () throws IOException {
         if (Cipher.ALPHABET.equals(Cipher.RUSSIAN_ALPHABET)) {
+            System.out.println("Вы выбрали русский язык!");
             System.out.println("Дорогой пользователь, добро пожаловать в мою программу по обработке шифра Цезаря!");
             System.out.println("Алфавит приложения - русские буквы, пишите русскими буквами!" + "\n" + "Вот весь алфавит: ");
             for (int i = 0; i < Cipher.ALPHABET.size(); i++) {
@@ -17,6 +18,7 @@ public class MainCode {
                 }
             }
         } else {
+            System.out.println("Dear user you chosen English language!");
             System.out.println("Remember if you work with files they will appear only after closing the program!");
             System.out.println("Dear user, welcome to my program!" + " This is a program for working with the Caesar cipher." + "\n"
                     + "You selected an English language. Look at the alphabet (letters that will change)!");
