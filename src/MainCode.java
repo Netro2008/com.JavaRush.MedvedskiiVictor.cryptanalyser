@@ -9,7 +9,7 @@ public class MainCode {
     public static void programStart () throws IOException {
         if (Cipher.ALPHABET.equals(Cipher.RUSSIAN_ALPHABET)) {
             System.out.println("Вы выбрали русский язык!");
-            System.out.println("Дорогой пользователь, добро пожаловать в мою программу по обработке шифра Цезаря!");
+            System.out.println("Дорогой пользователь, добро пожаловать в программу по обработке шифра Цезаря!");
             System.out.println("Алфавит приложения - русские буквы, пишите русскими буквами!" + "\n" + "Вот весь алфавит: ");
             for (int i = 0; i < Cipher.ALPHABET.size(); i++) {
                 System.out.print(Cipher.ALPHABET.get(i) + " ");
