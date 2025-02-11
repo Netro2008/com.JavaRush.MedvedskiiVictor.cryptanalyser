@@ -290,7 +290,7 @@ public class MainCode {
                             if (Cipher.ALPHABET.equals(Cipher.RUSSIAN_ALPHABET)) {
                                 System.out.println("Сообщение в вашем файле разшифровано и перемещено в файл под названием \"" + filePath3 + "\"" + "\n");
                             } else {
-                                System.out.println("We wrote encrypted text right in your file \" " + filePath3 + "\"");
+                                System.out.println("We wrote encrypted text right in your file \"" + filePath3 + "\"");
                             }
                         } else {
                             break;
