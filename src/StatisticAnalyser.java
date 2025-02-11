@@ -10,7 +10,7 @@ public class StatisticAnalyser {
         strings_2 = notDoneString.split(" ");
         String decrypting;
 
-        while (keyCounter < 32) {
+        while (keyCounter < Cipher.ALPHABET.size() - 1) {
             decrypting = Cipher.decrypt(strings_2[k], keyCounter);
             if (strings_1[m].equalsIgnoreCase(decrypting)) {
                 counter++;
