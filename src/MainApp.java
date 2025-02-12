@@ -4,7 +4,7 @@ public class MainApp {
         try {
             MainCode.programStart();
         } catch (Exception exception) {
-            System.out.println("The program was closed! If it was closed by mistake start it again!");
+            System.out.println("The program was completed! If it was completed by mistake, start it again!");
         }
     }
 }

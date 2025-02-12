@@ -18,10 +18,10 @@ public class MainCode {
                 }
             }
         } else {
-            System.out.println("Dear user you chose English language!");
-            System.out.println("Remember if you work with files they will appear only after closing the program!");
-            System.out.println("Dear user, welcome to my program!" + " This is a program for working with the Caesar cipher." + "\n"
-                    + "You selected an English language. Look at the alphabet (letters that will change)!");
+            System.out.println("Dear user you have chosen the English language!");
+            System.out.println("Remember if you work with files they will appear only after completing the program!");
+            System.out.println("Dear user, welcome to my program! This is a program for working with the Caesar cipher." + "\n"
+                    + "You have selected the English language. Look at the alphabet (letters that will change)!");
             System.out.println();
             for (int i = 0; i < Cipher.ALPHABET.size(); i++) {
                 System.out.print(Cipher.ALPHABET.get(i) + " ");
@@ -42,7 +42,7 @@ public class MainCode {
                         Меню программы (полный функционал)
                         1. Шифрование
                         2. Расшифровка с ключом
-                        3. Brute force
+                        3. BruteForce
                         4. Статистический анализ
                         0. Выход""");
                 System.out.println();
@@ -53,7 +53,7 @@ public class MainCode {
                     Menu of the program:
                     1. Encrypting text
                     2. Decrypting text
-                    3. Brute force
+                    3. BruteForce
                     4. Statistical analysis
                     0. Exit""");
                 System.out.println();
@@ -68,7 +68,7 @@ public class MainCode {
                     if (Cipher.ALPHABET.equals(Cipher.RUSSIAN_ALPHABET)) {
                         System.out.print("Вы должны вводить число!!!" + "\n" + "Выберите пункт ещё раз: ");
                     } else {
-                        System.out.print("Hey, you must write numbers, be careful!" + "\n" + "Select point of the menu again: ");
+                        System.out.print("Hey, you must write the number, be careful!" + "\n" + "Select the point of the menu again: ");
                     }
                     continue;
                 }
@@ -76,15 +76,15 @@ public class MainCode {
                     if (Cipher.ALPHABET.equals(Cipher.RUSSIAN_ALPHABET)) {
                         System.out.print("Вы выбрали несуществующий пункт меню!" + " Повторите попытку: ");
                     } else {
-                        System.out.print("You have selected a non-existent point! Please try again: ");
+                        System.out.print("You have selected a non-existent point of the menu! Please try again: ");
                     }
                 }
                 switch (userChoice) {
                     case 0:
                         if (Cipher.ALPHABET.equals(Cipher.RUSSIAN_ALPHABET)) {
-                            System.out.println("Вы вышли завершили работу программы!");
+                            System.out.println("Вы завершили работу программы!");
                         } else {
-                            System.out.println("Program was closed! Thanks for using it, hope to see you again!");
+                            System.out.println("The program was completed! Thanks for using it, hope to see you again!");
                         }
                         flag2 = false;
                         break;
@@ -103,8 +103,8 @@ public class MainCode {
                             System.out.println();
                             System.out.println("""
                                 Menu
-                                1. Encrypting the text entered in the console
-                                2. Encrypting text from a file
+                                1. Encrypting a text entered in the console
+                                2. Encrypting a text from the file
                                 9. Go back""");
                             System.out.println();
                             System.out.print("Choose the point of the menu please: ");
@@ -127,7 +127,7 @@ public class MainCode {
                                         """);
                                 System.out.print("Дорогой пользователь, помни, что значение твоего ключа может быть строго от 1 до 31: ");
                             } else {
-                                System.out.print("Please write a key (the amount by which the letters will be moved)! \uD83D\uDC47" + "\n" +
+                                System.out.print("Please write the key (the amount by which the letters will be moved)! \uD83D\uDC47" + "\n" +
                                         "Your key must be in range from 1 to 25: ");
                             }
 
@@ -139,7 +139,7 @@ public class MainCode {
                             if (Cipher.ALPHABET.equals(Cipher.RUSSIAN_ALPHABET)) {
                                 System.out.println("Результат мы вывели на экран строкой ниже!");
                             } else {
-                                System.out.println("The result we wrote right below the message!");
+                                System.out.println("We have written the result right below the message!");
                             }
                             System.out.println(encryptedText);
 
@@ -149,7 +149,7 @@ public class MainCode {
                             if (Cipher.ALPHABET.equals(Cipher.RUSSIAN_ALPHABET)) {
                                 System.out.print("Введите путь к файлу, в котором находится текст, который необходимо зашифровать: ");
                             } else {
-                                System.out.print("Please write filepath, where the text which you need to encrypt is: ");
+                                System.out.print("Please write the filepath, where the text which you need to encrypt is: ");
                             }
                             fileRead = Validator.filePathRead();
                             if (Validator.counter == 3) {
@@ -158,7 +158,7 @@ public class MainCode {
                             if (Cipher.ALPHABET.equals(Cipher.RUSSIAN_ALPHABET)) {
                                 System.out.print("Введите ключ: ");
                             } else {
-                                System.out.print("Input key please: ");
+                                System.out.print("Input the key please: ");
                             }
 
                             key = Validator.keySet();
@@ -169,7 +169,7 @@ public class MainCode {
                             if (Cipher.ALPHABET.equals(Cipher.RUSSIAN_ALPHABET)) {
                                 System.out.print("Введите путь к файлу, в который нужно будет записать зашифровку: ");
                             } else {
-                                System.out.print("Write filepath where we will write your encrypted text: ");
+                                System.out.print("Write the filepath in which we will write your encrypted text: ");
                             }
                             fileRead2 = Validator.filePathRead();
                             if (Validator.counter == 3) {
@@ -181,7 +181,7 @@ public class MainCode {
                             if (Cipher.ALPHABET.equals(Cipher.RUSSIAN_ALPHABET)) {
                                 System.out.println("Мы записали зашифровку в файл под названием " + fileRead2);
                             } else {
-                                System.out.println("We wrote encrypted text right in your file \" " + fileRead2 + "\"");
+                                System.out.println("We have written the encrypted text right into your file \"" + fileRead2 + "\"");
                             }
 
                         } else {
@@ -211,7 +211,7 @@ public class MainCode {
                                 2. Decryption of the text by the key (it's presence is mandatory) from the file
                                 9. Go back""");
                             System.out.println();
-                            System.out.println("Please be sure that you have the key to decrypt the text or go back to the menu \"9\" and run BruteForce or Statistical analysis!");
+                            System.out.println("Please make sure that you have the key to decrypt the text or go back to the menu \"9\" and run BruteForce or Statistical analysis!");
                             System.out.print("Choose the point of the menu: ");
                         }
 
@@ -232,7 +232,7 @@ public class MainCode {
                                         """);
                                 System.out.print("Дорогой пользователь, помни, что значение твоего ключа может быть строго от 1 до 31: ");
                             } else {
-                                System.out.print("Please write a key (the amount by which the letters will be moved)! \uD83D\uDC47" + "\n" +
+                                System.out.print("Please write the key (the amount of symbols you enter moves every letter of your text forward to the same amount as the key you enter)! \uD83D\uDC47" + "\n" +
                                         "Your key must be in range from 1 to 25: ");
                             }
 
@@ -245,7 +245,7 @@ public class MainCode {
                             if (Cipher.ALPHABET.equals(Cipher.RUSSIAN_ALPHABET)) {
                                 System.out.println("Расшифрованный текст мы вам написали прямо под этим сообщением!");
                             } else {
-                                System.out.println("We wrote decrypted text right below the message!");
+                                System.out.println("We have written the decrypted text right below the message!");
                             }
                             System.out.println(decryptedText);
 
@@ -256,7 +256,7 @@ public class MainCode {
                             if (Cipher.ALPHABET.equals(Cipher.RUSSIAN_ALPHABET)) {
                                 System.out.print("Введите путь к файлу из которого вам нужно расшифровать текст: ");
                             } else {
-                                System.out.print("Please write filepath to the file text from which we will decrypt: ");
+                                System.out.print("Please write the filepath to the file in which the text is situated that you need to decrypt: ");
                             }
                             filePath2 = Validator.filePathRead();
                             if (Validator.counter == 3) {
@@ -266,7 +266,7 @@ public class MainCode {
                             if (Cipher.ALPHABET.equals(Cipher.RUSSIAN_ALPHABET)) {
                                 System.out.print("Введите ключ: ");
                             } else {
-                                System.out.print("Input key: ");
+                                System.out.print("Input the key: ");
                             }
 
                             key = Validator.keySet();
@@ -277,7 +277,7 @@ public class MainCode {
                             if (Cipher.ALPHABET.equals(Cipher.RUSSIAN_ALPHABET)) {
                                 System.out.print("Введите путь к файлу в который нужно будет записать расшифровку: ");
                             } else {
-                                System.out.print("Please write filepath to the file where we will write decrypted text: ");
+                                System.out.print("Please write the filepath to the file where we will write the decrypted text: ");
                             }
                             filePath3 = Validator.filePathRead();
                             if (Validator.counter == 3) {
@@ -290,7 +290,7 @@ public class MainCode {
                             if (Cipher.ALPHABET.equals(Cipher.RUSSIAN_ALPHABET)) {
                                 System.out.println("Сообщение в вашем файле разшифровано и перемещено в файл под названием \"" + filePath3 + "\"" + "\n");
                             } else {
-                                System.out.println("We wrote encrypted text right in your file \"" + filePath3 + "\"");
+                                System.out.println("The message is encrypted right into your file \"" + filePath3 + "\"");
                             }
                         } else {
                             break;
@@ -313,8 +313,8 @@ public class MainCode {
                             System.out.println();
                             System.out.println("""
                                 Menu
-                                1. Decrypting text using BruteForce from the console
-                                2. Decrypting text using BruteForce from a file
+                                1. Decrypting the text using BruteForce from the console
+                                2. Decrypting the text using BruteForce from the file
                                 9. Go back""");
                             System.out.println();
                             System.out.print("Choose the point of the menu you need: ");
@@ -332,9 +332,9 @@ public class MainCode {
                                         + "\n" + "Вам останется лишь выбрать какая расшифровка из них - верная");
                             } else {
                                 System.out.println("Welcome to BruteForce decryption from the console!" + "\n" +
-                                        "Please make sure that you enter the text in 1 line, otherwise you'd better use the file!");
-                                System.out.println("Enter the text that you want to decipher and the program will write you all the possible options."
-                                        + "\n" + "All you have to do is choose which one of them is the correct one!");
+                                        "Please make sure that you enter the text in one line, otherwise it will be better to use the file!");
+                                System.out.println("Enter the text that you want to decipher and the program will give you all the possible options."
+                                        + "\n" + "All you have to do is to choose which one is the correct one!");
                             }
                             Scanner scanner4 = new Scanner(System.in);
                             String bruteForceInput = scanner4.nextLine();
@@ -348,7 +348,7 @@ public class MainCode {
                             } else {
                                 System.out.println("Welcome to BruteForce decryption from a file!" +
                                         "\n" + "Remember, this method is designed to decrypt a file if you don't have a key, in other words, using the compilation method.");
-                                System.out.print("Enter the path to the file that you want to decrypt using the BruteForce method: ");
+                                System.out.print("Enter the path to the file that you want to be decrypted using the BruteForce method: ");
                             }
                             String filePath = Validator.filePathRead();
                             if (Validator.counter == 3) {
@@ -358,7 +358,7 @@ public class MainCode {
                             if (Cipher.ALPHABET.equals(Cipher.RUSSIAN_ALPHABET)) {
                                 System.out.println("Спасибо, что воспользовались нашей программой, чтобы файл отобразился завершите работу программы!");
                             } else {
-                                System.out.println("The program has done everything to see the result, end the program! \"" + "0\"");
+                                System.out.println("Thanks for using out program, please complete the program to see the file! \"" + "0\"");
                             }
 
                         } else {
@@ -380,9 +380,9 @@ public class MainCode {
                             System.out.print("Выберите пункт меню: ");
                         } else {
                             System.out.println("Welcome to the statistical analysis method!" + "\n" +
-                                    "This method accepts a file with any text written in English and analyzes the encrypted file against it and tries to decrypt it.");
-                            System.out.println("It is important to remember that the method may make a mistake, but the probability of this is extremely low," +
-                                    " if the method gives you a very strange text, use the BruteForce method!");
+                                    "This method accepts any file in English and analyzes the encrypted file and tries to decrypt it.");
+                            System.out.println("It is important to remember that the method can make a mistake, but the probability of this is extremely low," +
+                                    " if you get a very strange text as a result, use the BruteForce method instead!");
                             System.out.println();
                             System.out.println("""
                                 Menu
@@ -400,7 +400,7 @@ public class MainCode {
                                 if (Cipher.ALPHABET.equals(Cipher.RUSSIAN_ALPHABET)) {
                                     System.out.print("Вводите число! Повторите попытку ещё раз: ");
                                 } else {
-                                    System.out.print("Please write numbers!" + "Please try again: ");
+                                    System.out.print("Please write the number!" + "Try once again: ");
                                 }
                                 continue;
                             }
@@ -420,8 +420,8 @@ public class MainCode {
                                 System.out.println("Введите путь к файлу в котором находится пример русского текста, любого, но чем больше текст, тем больше вероятность," +
                                         " что программа сработает корректно!");
                             } else {
-                                System.out.println("Enter the path to the file containing an example of English text, any one, but the larger the text," +
-                                        " the more likely it is that the program will work correctly!");
+                                System.out.println("Enter the path to the file containing an example of any English text!" + "\n"
+                                        + "Keep in mind, the larger the text, the better chances to decrypt it correctly");
                             }
                             String filePath_1 = Validator.filePathRead();
                             if (Validator.counter == 3) {
@@ -441,7 +441,7 @@ public class MainCode {
                             if (Cipher.ALPHABET.equals(Cipher.RUSSIAN_ALPHABET)) {
                                 System.out.print("Введите путь к файлу, в который нужно будет записать расшифровку, текста: ");
                             } else {
-                                System.out.print("Enter the path to the file in which you will need to write the decryption of the text: ");
+                                System.out.print("Enter the path to the file into which you need to write the decryption of the text: ");
                             }
                             String filePath_3 = Validator.filePathRead();
                             if (Validator.counter == 3) {
@@ -462,8 +462,8 @@ public class MainCode {
                                 System.out.println("Готово!" + " Расшифровка закончена!" + " При ключе = " + key + " текст наиболее похож на русский!");
                                 System.out.println("Расшифровку мы записали в файл " + filePath_3);
                             } else {
-                                System.out.println("Done!" + " Decrypting is finished!" + " When key = " + key + " the text is most similar to English!");
-                                System.out.println("Decrypted text we wrote in the file \"" + filePath_3 + "\"");
+                                System.out.println("Done!" + " Decrypting is finished!" + " If the key equals " + key + " the text is the most similar to English!");
+                                System.out.println("The message is decrypted right into your file \"" + filePath_3 + "\"");
                             }
                         } else {
                             break;

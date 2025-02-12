@@ -18,7 +18,7 @@ public class BruteForce {
                 fos3.write(bruteForce.getBytes());
             } catch (IOException e) {
                 if (Cipher.ALPHABET.equals(Cipher.ENGLISH_ALPHABET)) {
-                    System.out.print("Something went wrong... Try again please: ");
+                    System.out.print("Something went wrong... Try once again please: ");
                 } else {
                     System.out.println("Произошла ошибка... Попробуйте снова: ");
                 }

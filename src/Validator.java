@@ -12,8 +12,8 @@ public class Validator {
             if (Cipher.ALPHABET.equals(Cipher.ENGLISH_ALPHABET)) {
                 if (counter == 3) {
                     System.out.println();
-                    System.out.println("You wrote key wrong 3 times in a row, please make sure that you selected the point of the menu correctly and run the program again!"
-                            + "\n" + "The program was closed!");
+                    System.out.println("You wrote the wrong key 3 times in a row, please make sure that you selected the point of the menu correctly and run the program again!"
+                            + "\n" + "The program was completed!");
                     break;
                 }
             } else {
@@ -30,7 +30,7 @@ public class Validator {
             } catch (NumberFormatException exception) {
                 keySet = -1;
                 if (Cipher.ALPHABET.equals(Cipher.ENGLISH_ALPHABET)) {
-                    System.out.print("You must write a number!" + "\n" + "Try again please: ");
+                    System.out.print("You must write the number!" + "\n" + "Try again please: ");
                 } else {
                     System.out.print("Вводите число!" + "\n" + "Повторите попытку снова: ");
                 }
@@ -49,7 +49,7 @@ public class Validator {
                 }
             } else {
                 if (keySet <= 0 || keySet >= 26 && counter != 2) {
-                    System.out.print("Key must be in range from 1 to 25!" + "\n" + "Try to enter key again please: ");
+                    System.out.print("The key must be in range from 1 to 25!" + "\n" + "Try to enter the key again please: ");
                     counter++;
                     continue;
                 }
@@ -72,7 +72,7 @@ public class Validator {
                 if (counter == 3) {
                     System.out.println();
                     System.out.println("You wrote filepath incorrectly 3 times in a row!" + "\n" +
-                            "We finished the program if you didn't want to finish it, start it again and be careful!");
+                            "The program was completed, but you can always start it again! Next time be careful");
                     break;
                 }
             } else {
@@ -93,7 +93,7 @@ public class Validator {
             } catch (IOException exception) {
                 if (counter != 2) {
                     if (Cipher.ALPHABET.equals(Cipher.ENGLISH_ALPHABET)) {
-                        System.out.print("Check filepath you wrote!" + " The program cant find your file or something went wrong" + "\n" + "Try again please: ");
+                        System.out.print("Check the filepath you wrote!" + " The program can't find your file or something went wrong" + "\n" + "Try again please: ");
                     } else {
                         System.out.print("Проверьте путь, который вы написали!" + "\n" + "Повторите попытку: ");
                     }
@@ -122,7 +122,7 @@ public class Validator {
                 }
             } catch (NumberFormatException exception) {
                 if (Cipher.ALPHABET.equals(Cipher.ENGLISH_ALPHABET)) {
-                    System.out.print("You must write a number!" + "\n" + "Try again please: ");
+                    System.out.print("You must write the number!" + "\n" + "Try again please: ");
                 } else {
                     System.out.print("Вы должны вводить число!" + "\n" + "Повторите попытку ввода: ");
                 }
@@ -130,7 +130,7 @@ public class Validator {
             }
             if (counter1 != 0) {
                 if (Cipher.ALPHABET.equals(Cipher.ENGLISH_ALPHABET)) {
-                    System.out.print("You chose incorrect point of the menu! Try again please: ");
+                    System.out.print("You have chosen non-existent point of the menu! Try again please: ");
                 } else {
                     System.out.print("Вы выбрали несуществующий пункт меню, повторите попытку снова: ");
                 }

@@ -31,7 +31,7 @@ public class Cipher {
             try {
                 clintChose = Integer.parseInt(scanner.nextLine());
             } catch (NumberFormatException exception) {
-                System.out.print("You must write a number!" + " Be careful and try again: ");
+                System.out.print("You must write the number!" + " Be careful and try again: ");
                 continue;
             }
 
