@@ -9,6 +9,7 @@ public class Setup {
 
     public static void setup() {
         int selectingCipher = SelectCipher.selectCipher();
+        System.out.println();
         try {
             if (selectingCipher == 1) {
                 Cipher.setLanguage();

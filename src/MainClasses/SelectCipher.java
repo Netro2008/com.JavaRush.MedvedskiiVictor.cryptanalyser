@@ -31,7 +31,7 @@ public class SelectCipher {
             } else if (numberForSelectingCipher == 0) {
                 break;
             }
-            System.out.print("Please select a number from the following ciphers: ");
+            System.out.print("Please select cipher only from the ciphers below: ");
         }
         return numberForSelectingCipher;
     }
