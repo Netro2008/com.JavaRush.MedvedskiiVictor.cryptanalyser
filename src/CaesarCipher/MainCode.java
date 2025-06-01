@@ -1,5 +1,8 @@
 package CaesarCipher;
 
+import MainClasses.Setup;
+import MainClasses.TypicalPhrases;
+
 import java.io.IOException;
 import java.util.Scanner;
 
@@ -9,170 +12,66 @@ public class MainCode {
     public static boolean flag2 = true;
 
     public static void programStart () throws IOException {
-        if (Cipher.ALPHABET.equals(Cipher.RUSSIAN_ALPHABET)) {
-            System.out.println("Вы выбрали русский язык!");
-            System.out.println("Дорогой пользователь, добро пожаловать в программу по обработке шифра Цезаря!");
-            System.out.println("Алфавит приложения - русские буквы, пишите русскими буквами!" + "\n" + "Вот весь алфавит: ");
-            for (int i = 0; i < Cipher.ALPHABET.size(); i++) {
-                System.out.print(Cipher.ALPHABET.get(i) + " ");
-                if (i == 8 || i == 16 || i == 24 || i == 32) {
-                    System.out.println();
-                }
-            }
-        } else {
-            System.out.println("Dear user you have chosen the English language!");
-            System.out.println("Remember if you work with files they will appear only after completing the program!");
-            System.out.println("Dear user, welcome to my program! This is a program for working with the Caesar cipher." + "\n"
-                    + "You have selected the English language. Look at the alphabet (letters that will change)!");
-            System.out.println();
-            for (int i = 0; i < Cipher.ALPHABET.size(); i++) {
-                System.out.print(Cipher.ALPHABET.get(i) + " ");
-                if (i == 5 || i == 11 || i == 17 || i == 23) {
-                    System.out.println();
-                }
-            }
-            System.out.println();
-        }
+        TypicalPhrases.helloMethod(Setup.wordForSelectingCipher);
 
         Scanner scanner1 = new Scanner(System.in);
         int userChoice;
         while (flag2 && Validator.counter != 3) {
             textForRemakingRussian = "";
-            if (Cipher.ALPHABET.equals(Cipher.RUSSIAN_ALPHABET)) {
-                System.out.println();
-                System.out.println("""
-                        Меню программы (полный функционал)
-                        1. Шифрование
-                        2. Расшифровка с ключом
-                        3. CaesarCipher.BruteForce
-                        4. Статистический анализ
-                        0. Выход""");
-                System.out.println();
-                System.out.print("Выберите нужный вам пункт: ");
-            } else {
-                System.out.println();
-                System.out.println("""
-                    Menu of the program:
-                    1. Encrypting text
-                    2. Decrypting text
-                    3. CaesarCipher.BruteForce
-                    4. Statistical analysis
-                    0. Exit""");
-                System.out.println();
-                System.out.print("Choose the point of the menu please: ");
-            }
+            CaesarMainPhrases.programMenu();
             userChoice = -1;
 
             while (userChoice < 0 || userChoice > 4) {
                 try {
                     userChoice = Integer.parseInt(scanner1.nextLine());
                 } catch (NumberFormatException exception1) {
-                    if (Cipher.ALPHABET.equals(Cipher.RUSSIAN_ALPHABET)) {
-                        System.out.print("Вы должны вводить число!!!" + "\n" + "Выберите пункт ещё раз: ");
-                    } else {
-                        System.out.print("Hey, you must write the number, be careful!" + "\n" + "Select the point of the menu again: ");
-                    }
+                    CaesarMainPhrases.mustWriteOnlyNumber();
                     continue;
                 }
                 if (userChoice < 0 || userChoice > 4) {
-                    if (Cipher.ALPHABET.equals(Cipher.RUSSIAN_ALPHABET)) {
-                        System.out.print("Вы выбрали несуществующий пункт меню!" + " Повторите попытку: ");
-                    } else {
-                        System.out.print("You have selected a non-existent point of the menu! Please try again: ");
-                    }
+                    CaesarMainPhrases.nonExistMenuPoint();
                 }
                 switch (userChoice) {
                     case 0:
-                        if (Cipher.ALPHABET.equals(Cipher.RUSSIAN_ALPHABET)) {
-                            System.out.println("Вы завершили работу программы!");
-                        } else {
-                            System.out.println("The program was completed! Thanks for using it, hope to see you again!");
-                        }
+                        CaesarMainPhrases.endedProgram();
                         flag2 = false;
                         break;
 
                     case 1:
-                        if (Cipher.ALPHABET.equals(Cipher.RUSSIAN_ALPHABET)) {
-                            System.out.println();
-                            System.out.println("""
-                                    Меню
-                                    1. Шифрование текста введённого в консоль
-                                    2. Шифрование текста из файла
-                                    9. Вернуться назад""");
-                            System.out.println();
-                            System.out.print("Выберите откуда вы будете считывать текст: ");
-                        } else {
-                            System.out.println();
-                            System.out.println("""
-                                Menu
-                                1. Encrypting a text entered in the console
-                                2. Encrypting a text from the file
-                                9. Go back""");
-                            System.out.println();
-                            System.out.print("Choose the point of the menu please: ");
-                        }
+                        CaesarMainPhrases.encryptingMenu();
                         int clintChose1;
 
                         clintChose1 = Validator.choseMenu();
 
                         if (clintChose1 == 1) {
-                            if (Cipher.ALPHABET.equals(Cipher.RUSSIAN_ALPHABET)) {
-                                System.out.print("Введите текст в консоль для обработки: " + "\n");
-                            } else {
-                                System.out.print("Please write the text down below which you want to be encrypted: ");
-                            }
+                            CaesarMainPhrases.textInConsole();
                             textForRemakingRussian = scanner1.nextLine();
-                            if (Cipher.ALPHABET.equals(Cipher.RUSSIAN_ALPHABET)) {
-                                System.out.print("""
-                                        Введите ключ (количество символов на которое будет осуществляться сдвиг)!
-                                        Убидитесь что прочитали текст ниже \uD83D\uDC47
-                                        """);
-                                System.out.print("Дорогой пользователь, помни, что значение твоего ключа может быть строго от 1 до 31: ");
-                            } else {
-                                System.out.print("Please write the key (the amount by which the letters will be moved)! \uD83D\uDC47" + "\n" +
-                                        "Your key must be in range from 1 to 25: ");
-                            }
+                            CaesarMainPhrases.textInConsole();
 
                             key = Validator.keySet();
                             if (Validator.counter == 3) {
                                 continue;
                             }
                             String encryptedText = Cipher.encrypt(textForRemakingRussian, key);
-                            if (Cipher.ALPHABET.equals(Cipher.RUSSIAN_ALPHABET)) {
-                                System.out.println("Результат мы вывели на экран строкой ниже!");
-                            } else {
-                                System.out.println("We have written the result right below the message!");
-                            }
+                            CaesarMainPhrases.wroteResultOfMethodWorkInConsole();
                             System.out.println(encryptedText);
 
                         } else if (clintChose1 == 2) {
                             String fileRead, fileRead2, reader;
                             String encryptedText;
-                            if (Cipher.ALPHABET.equals(Cipher.RUSSIAN_ALPHABET)) {
-                                System.out.print("Введите путь к файлу, в котором находится текст, который необходимо зашифровать: ");
-                            } else {
-                                System.out.print("Please write the filepath, where the text which you need to encrypt is: ");
-                            }
+                            CaesarMainPhrases.selectFilePath();
                             fileRead = Validator.filePathRead();
                             if (Validator.counter == 3) {
                                 continue;
                             }
-                            if (Cipher.ALPHABET.equals(Cipher.RUSSIAN_ALPHABET)) {
-                                System.out.print("Введите ключ: ");
-                            } else {
-                                System.out.print("Input the key please: ");
-                            }
+                            CaesarMainPhrases.selectingKey();
 
                             key = Validator.keySet();
                             if (Validator.counter == 3) {
                                 continue;
                             }
 
-                            if (Cipher.ALPHABET.equals(Cipher.RUSSIAN_ALPHABET)) {
-                                System.out.print("Введите путь к файлу, в который нужно будет записать зашифровку: ");
-                            } else {
-                                System.out.print("Write the filepath in which we will write your encrypted text: ");
-                            }
+                            CaesarMainPhrases.selectFilePath();
                             fileRead2 = Validator.filePathRead();
                             if (Validator.counter == 3) {
                                 continue;
@@ -193,50 +92,15 @@ public class MainCode {
 
                     case 2:
                         int clintChose2;
-                        if (Cipher.ALPHABET.equals(Cipher.RUSSIAN_ALPHABET)) {
-                            System.out.println("Дорогой пользователь вы зашли в отдел расшифровки сообщений зашифрованных шифром Цезаря!");
-                            System.out.println("Пожалуйста убедитесь, что у вас есть ключ для расшифровки, иначе вернитесь назад и используйте такой метод расшифровки как \"Brute force\" или Статистическим анализом!");
-                            System.out.println();
-                            System.out.println("""
-                                    Меню
-                                    1. Расшифровка текста по ключу(его наличие обязательно) из консоли
-                                    2. Расшифровка текста по ключу(его наличие обязательно) с файла
-                                    9. Вернуться назад""");
-                            System.out.println();
-                            System.out.print("Выберите пункт меню: ");
-                        } else {
-                            System.out.println("Dear user, you have entered the department of decoding messages encrypted with the Caesar cipher!");
-                            System.out.println();
-                            System.out.println("""
-                                Menu
-                                1. Decryption of the text by the key (it's presence is mandatory) from the console
-                                2. Decryption of the text by the key (it's presence is mandatory) from the file
-                                9. Go back""");
-                            System.out.println();
-                            System.out.println("Please make sure that you have the key to decrypt the text or go back to the menu \"9\" and run CaesarCipher.BruteForce or Statistical analysis!");
-                            System.out.print("Choose the point of the menu: ");
-                        }
+                        CaesarMainPhrases.decryptingMenu();
 
                         clintChose2 = Validator.choseMenu();
 
                         if (clintChose2 == 1) {
-                            if (Cipher.ALPHABET.equals(Cipher.RUSSIAN_ALPHABET)) {
-                                System.out.print("Введите текст, который хотите расшифровать: ");
-                            } else {
-                                System.out.print("Write the text that you want to be decrypted: ");
-                            }
+                            CaesarMainPhrases.textInConsole();
 
                             textForRemakingRussian = scanner1.nextLine();
-                            if (Cipher.ALPHABET.equals(Cipher.RUSSIAN_ALPHABET)) {
-                                System.out.print("""
-                                        Введите ключ (количество символов на которое будет осуществляться сдвиг)!
-                                        Убидитесь что прочитали текст ниже \uD83D\uDC47
-                                        """);
-                                System.out.print("Дорогой пользователь, помни, что значение твоего ключа может быть строго от 1 до 31: ");
-                            } else {
-                                System.out.print("Please write the key (the amount of symbols you enter moves every letter of your text forward to the same amount as the key you enter)! \uD83D\uDC47" + "\n" +
-                                        "Your key must be in range from 1 to 25: ");
-                            }
+                            CaesarMainPhrases.selectingKey();
 
                             key = Validator.keySet();
                             if (Validator.counter == 3) {
@@ -244,43 +108,27 @@ public class MainCode {
                             }
                             String decryptedText = Cipher.decrypt(textForRemakingRussian, key);
 
-                            if (Cipher.ALPHABET.equals(Cipher.RUSSIAN_ALPHABET)) {
-                                System.out.println("Расшифрованный текст мы вам написали прямо под этим сообщением!");
-                            } else {
-                                System.out.println("We have written the decrypted text right below the message!");
-                            }
+                            CaesarMainPhrases.wroteResultOfMethodWorkInConsole();
                             System.out.println(decryptedText);
 
                         } else if (clintChose2 == 2) {
                             String filePath2, filePath3, reader2;
                             String decryptedText;
 
-                            if (Cipher.ALPHABET.equals(Cipher.RUSSIAN_ALPHABET)) {
-                                System.out.print("Введите путь к файлу из которого вам нужно расшифровать текст: ");
-                            } else {
-                                System.out.print("Please write the filepath to the file in which the text is situated that you need to decrypt: ");
-                            }
+                            CaesarMainPhrases.selectFilePath();
                             filePath2 = Validator.filePathRead();
                             if (Validator.counter == 3) {
                                 continue;
                             }
 
-                            if (Cipher.ALPHABET.equals(Cipher.RUSSIAN_ALPHABET)) {
-                                System.out.print("Введите ключ: ");
-                            } else {
-                                System.out.print("Input the key: ");
-                            }
+                            CaesarMainPhrases.selectingKey();
 
                             key = Validator.keySet();
                             if (Validator.counter == 3) {
                                 continue;
                             }
 
-                            if (Cipher.ALPHABET.equals(Cipher.RUSSIAN_ALPHABET)) {
-                                System.out.print("Введите путь к файлу в который нужно будет записать расшифровку: ");
-                            } else {
-                                System.out.print("Please write the filepath to the file where we will write the decrypted text: ");
-                            }
+                            CaesarMainPhrases.selectFilePath();
                             filePath3 = Validator.filePathRead();
                             if (Validator.counter == 3) {
                                 continue;
@@ -300,58 +148,20 @@ public class MainCode {
                         break;
 
                     case 3:
-                        if (Cipher.ALPHABET.equals(Cipher.RUSSIAN_ALPHABET)) {
-                            System.out.println("Привет дорогой пользователь! Вы зашли в расшифровку CaesarCipher.BruteForce (расшифровка без ключа)!");
-                            System.out.println();
-                            System.out.println("""
-                                    Меню
-                                    1. Расшифровка текста с помощью CaesarCipher.BruteForce из консоли
-                                    2. Расшифровка текста с помощью CaesarCipher.BruteForce с файла
-                                    9. Вернуться назад""");
-                            System.out.println();
-                            System.out.print("Выберите нужный вам способ расшифровки: ");
-                        } else {
-                            System.out.println("Hello dear user! Welcome to CaesarCipher.BruteForce method (decrypting without key)");
-                            System.out.println();
-                            System.out.println("""
-                                Menu
-                                1. Decrypting the text using CaesarCipher.BruteForce from the console
-                                2. Decrypting the text using CaesarCipher.BruteForce from the file
-                                9. Go back""");
-                            System.out.println();
-                            System.out.print("Choose the point of the menu you need: ");
-                        }
+                        CaesarMainPhrases.bruteForceMenu();
                         int clintChose3;
 
                         clintChose3 = Validator.choseMenu();
 
                         if (clintChose3 == 1) {
+                            CaesarMainPhrases.bruteForceMethodFromConsole();
 
-                            if (Cipher.ALPHABET.equals(Cipher.RUSSIAN_ALPHABET)) {
-                                System.out.println("Добро пожаловать в расшифровку методом CaesarCipher.BruteForce из консоли!" +
-                                        "\n" + "Пожалуйста убедитесь, что вы вводите текст в 1 строчку, иначе лучше воспользуйтесь файлом!");
-                                System.out.println("Введите текст, который вы желаете расшифровать и программа напишет вам все возможные варианты!"
-                                        + "\n" + "Вам останется лишь выбрать какая расшифровка из них - верная");
-                            } else {
-                                System.out.println("Welcome to CaesarCipher.BruteForce decryption from the console!" + "\n" +
-                                        "Please make sure that you enter the text in one line, otherwise it will be better to use the file!");
-                                System.out.println("Enter the text that you want to decipher and the program will give you all the possible options."
-                                        + "\n" + "All you have to do is to choose which one is the correct one!");
-                            }
                             Scanner scanner4 = new Scanner(System.in);
                             String bruteForceInput = scanner4.nextLine();
                             BruteForce.decryptByBruteForceConsole(bruteForceInput, Cipher.ALPHABET);
 
                         } else if (clintChose3 == 2) {
-                            if (Cipher.ALPHABET.equals(Cipher.RUSSIAN_ALPHABET)) {
-                                System.out.println("Добро пожаловать в расшифровку методом CaesarCipher.BruteForce с файла!" + "\n"
-                                        + "Помните, этот способ создан, чтобы расшифровать файл, если у вас нету ключа, по-другому говоря методом подборки!");
-                                System.out.print("Введите путь к файлу, который вы хотите расшифровать с помощью метода CaesarCipher.BruteForce: ");
-                            } else {
-                                System.out.println("Welcome to CaesarCipher.BruteForce decryption from a file!" +
-                                        "\n" + "Remember, this method is designed to decrypt a file if you don't have a key, in other words, using the compilation method.");
-                                System.out.print("Enter the path to the file that you want to be decrypted using the CaesarCipher.BruteForce method: ");
-                            }
+                            CaesarMainPhrases.bruteForceMethodFromFile();
                             String filePath = Validator.filePathRead();
                             if (Validator.counter == 3) {
                                 continue;
@@ -368,63 +178,25 @@ public class MainCode {
                         }
                         break;
                     case 4:
-                        if (Cipher.ALPHABET.equals(Cipher.RUSSIAN_ALPHABET)) {
-                            System.out.println("Добро пожаловать в метод статистического анализа!" + "\n" +
-                                    "Данный метод принимает файл с любым русским текстом и на фоне него анализирует зашифрованный вами файл и пытается его расшифровать");
-                            System.out.println("Важно помнить, что метод может допустить ошибку, но вероятность этого крайне мала," +
-                                    " если метод вам выдал очень странный текст, воспользуйтесь методом CaesarCipher.BruteForce!");
-                            System.out.println();
-                            System.out.println("""
-                                    Меню
-                                    1. Расшифровка текста с помощью статистического анализа
-                                    9. Вернуться назад""");
-                            System.out.println();
-                            System.out.print("Выберите пункт меню: ");
-                        } else {
-                            System.out.println("Welcome to the statistical analysis method!" + "\n" +
-                                    "This method accepts any file in English and analyzes the encrypted file and tries to decrypt it.");
-                            System.out.println("It is important to remember that the method can make a mistake, but the probability of this is extremely low," +
-                                    " if you get a very strange text as a result, use the CaesarCipher.BruteForce method instead!");
-                            System.out.println();
-                            System.out.println("""
-                                Menu
-                                1. Decoding (decrypting) text using statistical analysis
-                                9. Go back""");
-                            System.out.println();
-                            System.out.print("Choose the point of the menu you need: ");
-                        }
+                        CaesarMainPhrases.statisticalAnalysisMenu();
 
                         int userChoice2;
                         while (true) {
                             try {
                                 userChoice2 = Integer.parseInt(scanner1.nextLine());
                             } catch (NumberFormatException exception) {
-                                if (Cipher.ALPHABET.equals(Cipher.RUSSIAN_ALPHABET)) {
-                                    System.out.print("Вводите число! Повторите попытку ещё раз: ");
-                                } else {
-                                    System.out.print("Please write the number!" + "Try once again: ");
-                                }
+                                CaesarMainPhrases.mustWriteOnlyNumber();
                                 continue;
                             }
                             if (userChoice2 == 1 || userChoice2 == 9) {
                                 break;
                             } else {
-                                if (Cipher.ALPHABET.equals(Cipher.RUSSIAN_ALPHABET)) {
-                                    System.out.print("Вы выбрали несуществующий пункт меню!!!" + "\n" + "Повторите попытку: ");
-                                } else {
-                                    System.out.print("You have selected a non-existent menu item!" + "\n" + "Please try again: ");
-                                }
+                                CaesarMainPhrases.nonExistMenuPoint();
                             }
                         }
 
                         if (userChoice2 == 1) {
-                            if (Cipher.ALPHABET.equals(Cipher.RUSSIAN_ALPHABET)) {
-                                System.out.println("Введите путь к файлу в котором находится пример русского текста, любого, но чем больше текст, тем больше вероятность," +
-                                        " что программа сработает корректно!");
-                            } else {
-                                System.out.println("Enter the path to the file containing an example of any English text!" + "\n"
-                                        + "Keep in mind, the larger the text, the better chances to decrypt it correctly");
-                            }
+                            CaesarMainPhrases.filePathForTextForStatisticAnalysis();
                             String filePath_1 = Validator.filePathRead();
                             if (Validator.counter == 3) {
                                 continue;

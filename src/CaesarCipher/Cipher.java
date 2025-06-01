@@ -8,15 +8,15 @@ public class Cipher {
     public static String textForEncrypt = "";
     public static String textForDecrypt = "";
 
-    protected static final List<Character> RUSSIAN_ALPHABET = Arrays.asList('а', 'б',
+    public static final List<Character> RUSSIAN_ALPHABET = Arrays.asList('а', 'б',
             'в', 'г', 'д', 'е', 'ё', 'ж', 'з', 'и', 'й', 'к', 'л', 'м', 'н', 'о', 'п', 'р', 'с', 'т', 'у',
             'ф', 'х', 'ц', 'ч', 'ш', 'щ', 'ъ', 'ы', 'ь', 'э', 'ю', 'я');
 
-    protected static final List<Character> ENGLISH_ALPHABET = Arrays.asList('a', 'b',
+    public static final List<Character> ENGLISH_ALPHABET = Arrays.asList('a', 'b',
             'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't',
             'u', 'v', 'w', 'x', 'y', 'z');
 
-    protected static List<Character> ALPHABET;
+    public static List<Character> ALPHABET;
 
 
     public static void setLanguage() {
