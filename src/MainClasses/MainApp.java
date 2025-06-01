@@ -1,7 +1,6 @@
 package MainClasses;
 
-import CaesarCipher.Cipher;
-import CaesarCipher.MainCode;
+import AtbashCipher.AtbashCipher;
 
 public class MainApp {
     public static void main(String[] args) {

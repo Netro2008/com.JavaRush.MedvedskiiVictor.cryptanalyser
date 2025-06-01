@@ -2,8 +2,6 @@ package MainClasses;
 
 import CaesarCipher.Cipher;
 
-import java.io.IOException;
-
 public class TypicalPhrases {
     public static void helloMethod(String cipherName) {
         if (Cipher.ALPHABET.equals(Cipher.RUSSIAN_ALPHABET)) {
