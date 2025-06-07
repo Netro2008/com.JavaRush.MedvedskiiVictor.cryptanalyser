@@ -1,8 +1,8 @@
-package CaesarCipher;
+package main.CaesarCipher;
 
-import MainClasses.Confirmation;
-import MainClasses.Setup;
-import MainClasses.TypicalPhrases;
+import main.MainClasses.Confirmation;
+import main.MainClasses.Setup;
+import main.MainClasses.TypicalPhrases;
 
 import java.io.IOException;
 import java.util.Scanner;

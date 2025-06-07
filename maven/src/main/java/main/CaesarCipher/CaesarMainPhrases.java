@@ -1,4 +1,4 @@
-package CaesarCipher;
+package main.CaesarCipher;
 
 public class CaesarMainPhrases {
     public static void programMenu() {
@@ -94,29 +94,29 @@ public class CaesarMainPhrases {
                                 2. Decryption of the text by the key (it's presence is mandatory) from the file
                                 9. Go back""");
             System.out.println();
-            System.out.println("Please make sure that you have the key to decrypt the text or go back to the menu \"9\" and run CaesarCipher.BruteForce or Statistical analysis!");
+            System.out.println("Please make sure that you have the key to decrypt the text or go back to the menu \"9\" and run main.CaesarCipher.BruteForce or Statistical analysis!");
             System.out.print("Choose the point of the menu: ");
         }
     }
 
     public static void bruteForceMenu() {
         if (Cipher.ALPHABET.equals(Cipher.RUSSIAN_ALPHABET)) {
-            System.out.println("Привет дорогой пользователь! Вы зашли в расшифровку CaesarCipher.BruteForce (расшифровка без ключа)!");
+            System.out.println("Привет дорогой пользователь! Вы зашли в расшифровку main.CaesarCipher.BruteForce (расшифровка без ключа)!");
             System.out.println();
             System.out.println("""
                                     Меню
-                                    1. Расшифровка текста с помощью CaesarCipher.BruteForce из консоли
-                                    2. Расшифровка текста с помощью CaesarCipher.BruteForce с файла
+                                    1. Расшифровка текста с помощью main.CaesarCipher.BruteForce из консоли
+                                    2. Расшифровка текста с помощью main.CaesarCipher.BruteForce с файла
                                     9. Вернуться назад""");
             System.out.println();
             System.out.print("Выберите нужный вам способ расшифровки: ");
         } else {
-            System.out.println("Hello dear user! Welcome to CaesarCipher.BruteForce method (decrypting without key)");
+            System.out.println("Hello dear user! Welcome to main.CaesarCipher.BruteForce method (decrypting without key)");
             System.out.println();
             System.out.println("""
                                 Menu
-                                1. Decrypting the text using CaesarCipher.BruteForce from the console
-                                2. Decrypting the text using CaesarCipher.BruteForce from the file
+                                1. Decrypting the text using main.CaesarCipher.BruteForce from the console
+                                2. Decrypting the text using main.CaesarCipher.BruteForce from the file
                                 9. Go back""");
             System.out.println();
             System.out.print("Choose the point of the menu you need: ");
@@ -141,11 +141,11 @@ public class CaesarMainPhrases {
         if (Cipher.ALPHABET.equals(Cipher.RUSSIAN_ALPHABET)) {
             System.out.println("Добро пожаловать в расшифровку методом BruteForce с файла!" + "\n"
                     + "Помните, этот способ создан, чтобы расшифровать файл, если у вас нету ключа, по-другому говоря методом подборки!");
-            System.out.print("Введите путь к файлу, который вы хотите расшифровать с помощью метода CaesarCipher.BruteForce: ");
+            System.out.print("Введите путь к файлу, который вы хотите расшифровать с помощью метода main.CaesarCipher.BruteForce: ");
         } else {
             System.out.println("Welcome to BruteForce decryption from a file!" +
                     "\n" + "Remember, this method is designed to decrypt a file if you don't have a key, in other words, using the compilation method.");
-            System.out.print("Enter the path to the file that you want to be decrypted using the CaesarCipher.BruteForce method: ");
+            System.out.print("Enter the path to the file that you want to be decrypted using the main.CaesarCipher.BruteForce method: ");
         }
     }
 

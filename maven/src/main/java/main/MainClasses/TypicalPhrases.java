@@ -1,6 +1,6 @@
-package MainClasses;
+package main.MainClasses;
 
-import CaesarCipher.Cipher;
+import main.CaesarCipher.Cipher;
 
 public class TypicalPhrases {
     public static void helloMethod(String cipherName) {

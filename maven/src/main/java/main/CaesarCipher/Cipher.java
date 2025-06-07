@@ -1,4 +1,4 @@
-package CaesarCipher;
+package main.CaesarCipher;
 
 import java.util.Arrays;
 import java.util.List;
