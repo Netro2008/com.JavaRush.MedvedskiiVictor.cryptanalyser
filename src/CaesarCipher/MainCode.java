@@ -47,7 +47,7 @@ public class MainCode {
                         if (clintChose1 == 1) {
                             CaesarMainPhrases.textInConsole();
                             textForRemakingRussian = scanner1.nextLine();
-                            CaesarMainPhrases.textInConsole();
+                            CaesarMainPhrases.selectingKey();
 
                             key = Validator.keySet();
                             if (Validator.counter == 3) {
