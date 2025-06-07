@@ -14,10 +14,10 @@ public class MainCodeOfAtbashCipher {
     public static void startAtbashCipher() throws IOException {
         boolean flag = true, flag2 = true;
         int userChoiceInEncryptingMenu, userChoice;
+        TypicalPhrases.helloMethod(Setup.wordForSelectingCipher);
 
         while (flag) {
             flag2 = true;
-            TypicalPhrases.helloMethod(Setup.wordForSelectingCipher);
             AtbashMainPhrases.atbashCipherMeinMenu();
             userChoice = AtbashHelper.userChoiceInMenu();
             System.out.println();
@@ -34,6 +34,7 @@ public class MainCodeOfAtbashCipher {
                             String text = scanner.nextLine();
                             resultOfMethodWork = AtbashCipherConsole.encryptOrDecryptTextFromConsole(text, Cipher.ALPHABET);
                             System.out.println("Your encrypted text: " + resultOfMethodWork);
+                            System.out.println();
 
                             int confirmationChoice = Confirmation.confirmationOfContinuingWorkingProgram();
                             if (confirmationChoice == 2) {
@@ -53,6 +54,7 @@ public class MainCodeOfAtbashCipher {
                             String filepathWhereDoneResultShouldBe = scanner.nextLine();
                             AtbashCipherFromFile.encryptOrDecryptFromFile(filepath, filepathWhereDoneResultShouldBe, Cipher.ALPHABET);
                             AtbashMainPhrases.endedEncryptingText();
+                            System.out.println();
 
                             int confirmationChoice = Confirmation.confirmationOfContinuingWorkingProgram();
                             if (confirmationChoice == 2) {
@@ -84,6 +86,7 @@ public class MainCodeOfAtbashCipher {
                             String text = scanner.nextLine();
                             resultOfMethodWork = AtbashCipherConsole.encryptOrDecryptTextFromConsole(text, Cipher.ALPHABET);
                             System.out.println("Your decrypted text: " + resultOfMethodWork);
+                            System.out.println();
 
                             int confirmationChoice = Confirmation.confirmationOfContinuingWorkingProgram();
                             if (confirmationChoice == 2) {
@@ -103,6 +106,7 @@ public class MainCodeOfAtbashCipher {
                             String filepathWhereDoneResultShouldBe = scanner.nextLine();
                             AtbashCipherFromFile.encryptOrDecryptFromFile(filepath, filepathWhereDoneResultShouldBe, Cipher.ALPHABET);
                             AtbashMainPhrases.endedEncryptingText();
+                            System.out.println();
 
                             int confirmationChoice = Confirmation.confirmationOfContinuingWorkingProgram();
                             if (confirmationChoice == 2) {

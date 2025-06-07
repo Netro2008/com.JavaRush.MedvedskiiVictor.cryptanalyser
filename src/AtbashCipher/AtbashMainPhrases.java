@@ -33,6 +33,7 @@ public class AtbashMainPhrases {
 
     public static void atbashCipherMeinMenu() {
         if (Cipher.ALPHABET == Cipher.ENGLISH_ALPHABET) {
+            System.out.println("Atbash cipher");
             System.out.println("""
                     Menu of the program:
                     1. Encrypting text
@@ -41,6 +42,7 @@ public class AtbashMainPhrases {
             System.out.println();
             System.out.print("Please choose the point of the menu: ");
         } else {
+            System.out.println("Шифр Атбаша");
             System.out.println("""
                     Меню программы:
                     1. Зашифровка текста
