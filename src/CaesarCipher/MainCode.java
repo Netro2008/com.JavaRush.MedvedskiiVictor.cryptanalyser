@@ -56,6 +56,7 @@ public class MainCode {
                             String encryptedText = Cipher.encrypt(textForRemakingRussian, key);
                             CaesarMainPhrases.wroteResultOfMethodWorkInConsole();
                             System.out.println(encryptedText);
+                            System.out.println();
 
                             int confirmationChoice = Confirmation.confirmationOfContinuingWorkingProgram();
                             if (confirmationChoice == 2) {
@@ -92,6 +93,7 @@ public class MainCode {
                             } else {
                                 System.out.println("We have written the encrypted text right into your file \"" + fileRead2 + "\"");
                             }
+                            System.out.println();
 
                             int confirmationChoice = Confirmation.confirmationOfContinuingWorkingProgram();
                             if (confirmationChoice == 2) {
@@ -125,6 +127,7 @@ public class MainCode {
 
                             CaesarMainPhrases.wroteResultOfMethodWorkInConsole();
                             System.out.println(decryptedText);
+                            System.out.println();
 
                             int confirmationChoice = Confirmation.confirmationOfContinuingWorkingProgram();
                             if (confirmationChoice == 2) {
@@ -164,6 +167,7 @@ public class MainCode {
                             } else {
                                 System.out.println("The message is encrypted right into your file \"" + filePath3 + "\"");
                             }
+                            System.out.println();
 
                             int confirmationChoice = Confirmation.confirmationOfContinuingWorkingProgram();
                             if (confirmationChoice == 2) {
@@ -188,6 +192,7 @@ public class MainCode {
                             Scanner scanner4 = new Scanner(System.in);
                             String bruteForceInput = scanner4.nextLine();
                             BruteForce.decryptByBruteForceConsole(bruteForceInput, Cipher.ALPHABET);
+                            System.out.println();
 
                             int confirmationChoice = Confirmation.confirmationOfContinuingWorkingProgram();
                             if (confirmationChoice == 2) {
@@ -208,6 +213,7 @@ public class MainCode {
                             } else {
                                 System.out.println("Thanks for using out program, please complete the program to see the file! \"" + "0\"");
                             }
+                            System.out.println();
 
                             int confirmationChoice = Confirmation.confirmationOfContinuingWorkingProgram();
                             if (confirmationChoice == 2) {
@@ -282,6 +288,7 @@ public class MainCode {
                                 System.out.println("Done!" + " Decrypting is finished!" + " If the key equals " + key + " the text is the most similar to English!");
                                 System.out.println("The message is decrypted right into your file \"" + filePath_3 + "\"");
                             }
+                            System.out.println();
 
                             int confirmationChoice = Confirmation.confirmationOfContinuingWorkingProgram();
                             if (confirmationChoice == 2) {
