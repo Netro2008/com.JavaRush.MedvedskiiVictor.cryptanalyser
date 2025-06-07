@@ -1,5 +1,6 @@
 package CaesarCipher;
 
+import MainClasses.Confirmation;
 import MainClasses.Setup;
 import MainClasses.TypicalPhrases;
 
@@ -56,6 +57,13 @@ public class MainCode {
                             CaesarMainPhrases.wroteResultOfMethodWorkInConsole();
                             System.out.println(encryptedText);
 
+                            int confirmationChoice = Confirmation.confirmationOfContinuingWorkingProgram();
+                            if (confirmationChoice == 2) {
+                                CaesarMainPhrases.endedProgram();
+                                flag2 = false;
+                                break;
+                            }
+
                         } else if (clintChose1 == 2) {
                             String fileRead, fileRead2, reader;
                             String encryptedText;
@@ -85,6 +93,13 @@ public class MainCode {
                                 System.out.println("We have written the encrypted text right into your file \"" + fileRead2 + "\"");
                             }
 
+                            int confirmationChoice = Confirmation.confirmationOfContinuingWorkingProgram();
+                            if (confirmationChoice == 2) {
+                                CaesarMainPhrases.endedProgram();
+                                flag2 = false;
+                                break;
+                            }
+
                         } else {
                             break;
                         }
@@ -110,6 +125,13 @@ public class MainCode {
 
                             CaesarMainPhrases.wroteResultOfMethodWorkInConsole();
                             System.out.println(decryptedText);
+
+                            int confirmationChoice = Confirmation.confirmationOfContinuingWorkingProgram();
+                            if (confirmationChoice == 2) {
+                                CaesarMainPhrases.endedProgram();
+                                flag2 = false;
+                                break;
+                            }
 
                         } else if (clintChose2 == 2) {
                             String filePath2, filePath3, reader2;
@@ -142,6 +164,13 @@ public class MainCode {
                             } else {
                                 System.out.println("The message is encrypted right into your file \"" + filePath3 + "\"");
                             }
+
+                            int confirmationChoice = Confirmation.confirmationOfContinuingWorkingProgram();
+                            if (confirmationChoice == 2) {
+                                CaesarMainPhrases.endedProgram();
+                                flag2 = false;
+                                break;
+                            }
                         } else {
                             break;
                         }
@@ -160,6 +189,13 @@ public class MainCode {
                             String bruteForceInput = scanner4.nextLine();
                             BruteForce.decryptByBruteForceConsole(bruteForceInput, Cipher.ALPHABET);
 
+                            int confirmationChoice = Confirmation.confirmationOfContinuingWorkingProgram();
+                            if (confirmationChoice == 2) {
+                                CaesarMainPhrases.endedProgram();
+                                flag2 = false;
+                                break;
+                            }
+
                         } else if (clintChose3 == 2) {
                             CaesarMainPhrases.bruteForceMethodFromFile();
                             String filePath = Validator.filePathRead();
@@ -171,6 +207,13 @@ public class MainCode {
                                 System.out.println("Спасибо, что воспользовались нашей программой, чтобы файл отобразился завершите работу программы!");
                             } else {
                                 System.out.println("Thanks for using out program, please complete the program to see the file! \"" + "0\"");
+                            }
+
+                            int confirmationChoice = Confirmation.confirmationOfContinuingWorkingProgram();
+                            if (confirmationChoice == 2) {
+                                CaesarMainPhrases.endedProgram();
+                                flag2 = false;
+                                break;
                             }
 
                         } else {
@@ -238,6 +281,13 @@ public class MainCode {
                             } else {
                                 System.out.println("Done!" + " Decrypting is finished!" + " If the key equals " + key + " the text is the most similar to English!");
                                 System.out.println("The message is decrypted right into your file \"" + filePath_3 + "\"");
+                            }
+
+                            int confirmationChoice = Confirmation.confirmationOfContinuingWorkingProgram();
+                            if (confirmationChoice == 2) {
+                                CaesarMainPhrases.endedProgram();
+                                flag2 = false;
+                                break;
                             }
                         } else {
                             break;
