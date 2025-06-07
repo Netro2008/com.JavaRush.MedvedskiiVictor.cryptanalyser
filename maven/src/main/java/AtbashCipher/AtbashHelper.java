@@ -1,4 +1,4 @@
-package main.AtbashCipher;
+package AtbashCipher;
 import java.util.Scanner;
 
 public class AtbashHelper {

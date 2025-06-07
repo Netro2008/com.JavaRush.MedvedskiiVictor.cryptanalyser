@@ -1,4 +1,4 @@
-package main.CaesarCipher;
+package CaesarCipher;
 
 import java.io.*;
 

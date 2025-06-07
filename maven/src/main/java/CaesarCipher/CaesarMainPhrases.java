@@ -1,4 +1,4 @@
-package main.CaesarCipher;
+package CaesarCipher;
 
 public class CaesarMainPhrases {
     public static void programMenu() {

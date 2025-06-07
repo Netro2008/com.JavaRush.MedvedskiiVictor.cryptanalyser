@@ -1,4 +1,4 @@
-package main.MainClasses;
+package MainClasses;
 
 public class MainApp {
     public static void main(String[] args) {

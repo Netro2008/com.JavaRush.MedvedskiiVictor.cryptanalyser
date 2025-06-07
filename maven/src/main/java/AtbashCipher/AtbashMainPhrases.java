@@ -1,6 +1,6 @@
-package main.AtbashCipher;
+package AtbashCipher;
 
-import main.CaesarCipher.Cipher;
+import CaesarCipher.Cipher;
 
 public class AtbashMainPhrases {
     public static void helloPhraseAtbashCipher() {

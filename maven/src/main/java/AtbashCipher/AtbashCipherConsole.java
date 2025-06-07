@@ -1,8 +1,8 @@
-package main.AtbashCipher;
+package AtbashCipher;
 
 import java.util.List;
 
-import static main.CaesarCipher.Cipher.*;
+import static CaesarCipher.Cipher.*;
 
 public class AtbashCipherConsole {
     public static String encryptOrDecryptTextFromConsole(String text, List<Character> alphabet) {

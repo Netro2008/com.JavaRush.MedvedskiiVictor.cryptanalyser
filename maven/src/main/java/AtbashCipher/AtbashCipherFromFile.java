@@ -1,10 +1,10 @@
-package main.AtbashCipher;
+package AtbashCipher;
 
 import java.io.*;
 import java.util.List;
 
-import static main.CaesarCipher.Cipher.ALPHABET;
-import static main.CaesarCipher.Cipher.RUSSIAN_ALPHABET;
+import static CaesarCipher.Cipher.ALPHABET;
+import static CaesarCipher.Cipher.RUSSIAN_ALPHABET;
 
 public class AtbashCipherFromFile {
     public static void encryptOrDecryptFromFile(String filepath, String fileWhereTheResultWillBe, List<Character> alphabet) throws IOException {

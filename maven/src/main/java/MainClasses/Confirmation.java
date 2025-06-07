@@ -1,6 +1,6 @@
-package main.MainClasses;
+package MainClasses;
 
-import main.CaesarCipher.Cipher;
+import CaesarCipher.Cipher;
 
 import java.util.IllegalFormatException;
 import java.util.Scanner;

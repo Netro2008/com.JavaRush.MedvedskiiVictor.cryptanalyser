@@ -1,8 +1,8 @@
-package main.MainClasses;
+package MainClasses;
 
-import main.AtbashCipher.MainCodeOfAtbashCipher;
-import main.CaesarCipher.Cipher;
-import main.CaesarCipher.MainCode;
+import AtbashCipher.MainCodeOfAtbashCipher;
+import CaesarCipher.Cipher;
+import CaesarCipher.MainCode;
 
 import java.io.IOException;
 

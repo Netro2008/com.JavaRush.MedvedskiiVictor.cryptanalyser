@@ -1,9 +1,9 @@
-package main.AtbashCipher;
-import main.CaesarCipher.CaesarMainPhrases;
-import main.CaesarCipher.Cipher;
-import main.MainClasses.Confirmation;
-import main.MainClasses.Setup;
-import main.MainClasses.TypicalPhrases;
+package AtbashCipher;
+import CaesarCipher.CaesarMainPhrases;
+import CaesarCipher.Cipher;
+import MainClasses.Confirmation;
+import MainClasses.Setup;
+import MainClasses.TypicalPhrases;
 
 import java.io.IOException;
 import java.util.Scanner;
