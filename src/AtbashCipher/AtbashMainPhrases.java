@@ -123,7 +123,7 @@ public class AtbashMainPhrases {
 
     public static void endedEncryptingText() {
         if (Cipher.ALPHABET == Cipher.ENGLISH_ALPHABET) {
-            System.out.println("Your text for encrypted and written to the file! End the program to see the result!");
+            System.out.println("Your text was encrypted and written to the file! End the program to see the result!");
         } else {
             System.out.println("Ваш текст был зашифрован и записан в файл! Завершите работу программы, чтобы увидеть результат!");
         }

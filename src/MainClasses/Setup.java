@@ -4,6 +4,8 @@ import AtbashCipher.MainCodeOfAtbashCipher;
 import CaesarCipher.Cipher;
 import CaesarCipher.MainCode;
 
+import java.io.IOException;
+
 public class Setup {
     public static String wordForSelectingCipher;
 
@@ -28,8 +30,8 @@ public class Setup {
                 }
                 MainCodeOfAtbashCipher.startAtbashCipher();
             }
-        } catch (Exception exception) {
-            System.out.println("The program was completed! If it was completed by mistake, start it again!");
+        } catch (IOException exception) {
+            System.out.println("IOException: " + exception.getMessage());
         }
     }
 }
