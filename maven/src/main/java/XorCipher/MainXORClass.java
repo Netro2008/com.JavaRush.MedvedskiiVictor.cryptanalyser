@@ -27,9 +27,7 @@ public class MainXORClass {
                         if (userChoiceInEncryptingMenu == 1) {
                             MainPhrasesXOR.pleaseWriteText();
                             String text = GettingPersonInfo.gettingUserText();
-
-                            // нужно будет добавить выбор длины ключа
-                            String key = EncryptingAndDecryptingMethod.makingKey(16);
+                            String key = EncryptingAndDecryptingMethod.makingKey(24);
 
                             byte[] bytes = EncryptingAndDecryptingMethod.encryptingText(text, key);
                             String resultInBase64String = Base64.getEncoder().encodeToString(bytes);
