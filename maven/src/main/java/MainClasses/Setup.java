@@ -3,6 +3,7 @@ package MainClasses;
 import AtbashCipher.MainCodeOfAtbashCipher;
 import CaesarCipher.Cipher;
 import CaesarCipher.MainCode;
+import XorCipher.MainXORClass;
 
 import java.io.IOException;
 
@@ -29,6 +30,9 @@ public class Setup {
                     wordForSelectingCipher = "Atbash";
                 }
                 MainCodeOfAtbashCipher.startAtbashCipher();
+            } else if (selectingCipher == 3) {
+                Cipher.setLanguage();
+                MainXORClass.mainClassOFXORCipher();
             }
         } catch (IOException exception) {
             System.out.println("IOException: " + exception.getMessage());

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status = "WARN">
+
+    <Appenders>
+        <File name="File" fileName="logs/cryptoAnalyser.log" append = "false">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+        </File>
+
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%highlight{%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n}"/>
+        </Console>
+    </Appenders>
+
+    <Loggers>
+        <!-- Корневой логгер: записывает ВСЕ уровни (level="trace") -->
+        <Root level="trace">
+            <AppenderRef ref="com.JavaRush.MedvedskiiVictor.cryptoanalyser2"/>
+            <AppenderRef ref="Console" level="warn"/>
+        </Root>
+    </Loggers>
+</Configuration>

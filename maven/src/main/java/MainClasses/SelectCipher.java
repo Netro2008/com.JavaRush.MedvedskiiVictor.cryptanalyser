@@ -12,6 +12,7 @@ public class SelectCipher {
                 Our ciphers
                 1. Caesar Cipher
                 2. Atbash Cipher
+                3. XOR Cipher
                 0. Finish program""");
         System.out.print("Please select cipher: ");
         int numberForSelectingCipher;
@@ -30,7 +31,10 @@ public class SelectCipher {
                 break;
             } else if (numberForSelectingCipher == 0) {
                 break;
+            } else if (numberForSelectingCipher == 3) {
+                break;
             }
+
             System.out.print("Please select cipher only from the ciphers below: ");
         }
         return numberForSelectingCipher;
